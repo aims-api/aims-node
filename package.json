@@ -26,7 +26,6 @@
     "fix": "eslint '*/**/*.{js,jsx,ts,tsx}' --quiet --fix",
     "ci-lint": "eslint '*/**/*.{js,jsx,ts,tsx}' --quiet",
     "test": "jest --runInBand",
-    "changeset": "changeset version && changeset publish",
     "release": "yarn build && changeset publish"
   },
   "dependencies": {
