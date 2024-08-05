@@ -6,6 +6,7 @@
   "author": "AIMS API <support@aimsapi.com> (https://aimsapi.com/)",
   "keywords": [
     "music search",
+    "similarity search",
     "api"
   ],
   "repository": {
