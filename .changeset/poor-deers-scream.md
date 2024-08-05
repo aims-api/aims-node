@@ -1,5 +1,5 @@
 ---
-"@aims-api/aims-node": patch
+'@aims-api/aims-node': patch
 ---
 
 - Circle-ci linting and testing
