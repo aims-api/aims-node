@@ -1,0 +1,17 @@
+{
+    "parserOptions": {
+      "ecmaVersion": 2021,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "project": "./tsconfig.json"
+    },
+    "extends": ["plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
+    "rules": {
+      "@typescript-eslint/no-explicit-any": "error",
+      "@typescript-eslint/explicit-function-return-type": "off"
+    },
+    "root": true
+  }
+  
