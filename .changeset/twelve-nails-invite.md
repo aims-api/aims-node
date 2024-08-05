@@ -1,5 +1,5 @@
 ---
-"@aims-api/aims-node": patch
+'@aims-api/aims-node': patch
 ---
 
-npm publishing using circle-ci and changesets/cli
+linting and testing with circle-ci, publishing to npm using changesets/cli
