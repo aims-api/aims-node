@@ -6,6 +6,7 @@
   "author": "AIMS API <support@aimsapi.com> (https://aimsapi.com/)",
   "keywords": [
     "music search",
+    "similarity search",
     "api"
   ],
   "repository": {
@@ -26,7 +27,7 @@
     "fix": "eslint '*/**/*.{js,jsx,ts,tsx}' --quiet --fix",
     "ci-lint": "eslint '*/**/*.{js,jsx,ts,tsx}' --quiet",
     "test": "jest --runInBand",
-    "release": "yarn build && changeset publish"
+    "publish-npm": "yarn build && changeset publish"
   },
   "dependencies": {
     "axios": "1.6.0",
