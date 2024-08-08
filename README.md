@@ -17,14 +17,16 @@
   <br />
 
 <div align="center">
-<!-- <a href="https://github.com/aims-api/aims-node/actions?query=branch%3Amain"><img src="https://github.com/aims-api/aims-node/actions/workflows/test.yml/badge.svg?event=push&branch=main" alt="CI status" /></a> -->
-<a href="https://aimsapi.com" rel="nofollow" target="_blank"><img src="https://img.shields.io/badge/created%20by-AIMS%20API-8137CF
-" alt="Created by AIMS API"></a>
+<a href="https://aimsapi.com" rel="nofollow" target="_blank"><img src="https://img.shields.io/badge/created%20by-AIMS%20API-8137CF" alt="Created by AIMS API"></a>
 <a href="https://npmjs.org/package/badges" title="View this project on NPM"><img src="https://img.shields.io/npm/v/@aims-api/aims-node.svg" alt="NPM version" /></a></span>
 </div>
 
 <details open="open">
-<summary style="font-size: 20px; font-weight: bold;">Table of Contents</summary>
+<summary>
+
+## Table of Contents
+
+</summary>
 
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
@@ -39,38 +41,61 @@
 ---
 
 <details open="open">
-<summary style="font-size: 20px; font-weight: bold; margin-top: 20px;">Getting Started</summary>
+<summary>
+
+## Getting Started
+
+</summary>
 
 <br />
-Instructions on how to install your project.
+To work with the package you need to have npm (or other package manager) installed.
+Library supports Node.js version 18.x and above, and can be used in a client codebase. 
+<br />
+<br />
 
-### Prerequisites
+```node
+npm install @aims-api/aims-node
+```
 
-To work with the package you need to have npm installed.
-
-#### Authentication
+### Authentication
 
 In order to use the lirbary you need to obtain an API key. You can get a demo key by contating us at [hello@aimsapi.com](mailto:hello@aimsapi.com).
 
-Every HTTP request should include the following headers:
-
-```
-Authorization: Bearer <your-api-key>
-Content-Type: application/json
-```
+After you have obtained your API key, you MAY USE the library on the client as well as on the server side.
 
 <details>
-<summary>Example</summary>
+<summary>
 
-```javascript
-const aims = require('@aims-api/aims-node')
+### Example with Next.js
 
-aims.setApiKey('your-api-key')
+</summary>
 
-aims
-  .get('https://api.aimsapi.com/v1/users/me')
-  .then((response) => console.log(response))
-  .catch((error) => console.error(error))
+```typescript
+// pages/api/searchByText.ts
+
+import { NextApiRequest, NextApiResponse } from 'next'
+
+const createSimilaritySearchClient = async (req: NextApiRequest) => {
+  return new SimilaritySearchApiClient({
+    authorization: YOUR_API_KEY,
+  })
+}
+
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+  if (req.method === 'POST') {
+    try {
+      const { text, filter } = req.body
+      const client = await createSimilaritySearchClient(req)
+      const response = await client.endpoints.query.byText({ text, detailed: true, filter })
+      return res.status(200).send(response)
+    } catch (error) {
+      return res.status(error.status).json(error.json)
+    }
+  }
+  return res.status(400).json('Method not allowed')
+}
+
+export default handler
 ```
 
 </details>
