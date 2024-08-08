@@ -3,10 +3,12 @@
 </h1>
 
 <div align="center">
-  A Node.js library to integrate the AIMS API.
+  A Node.js library written in TypeScript to integrate the AIMS API.
+  <br /> You MAY USE this library on the client as well as on the server side.
   <br />
   <br />
   Reach for more information at <a href="https://aimsapi.com" target="_blank">aimsapi.com</a>
+  <br />
   <br />
   <a href="https://github.com/aims-api/aims-node/issues/new">Report a Bug</a>
   -
@@ -29,12 +31,12 @@
 </summary>
 
 - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-    - [Authentication](#authentication)
+  - [Authentication](#authentication)
+  - [Next.js example](#Example-with-Next.js)
 - [Usage](#usage)
-  - [Examples](#examples)
+  - [Routes](#routes)
+  - [Error Handling](#error-handling)
 - [License](#license)
-- [Acknowledgements](#acknowledgements)
 
 </details>
 
@@ -49,19 +51,17 @@
 
 <br />
 To work with the package you need to have npm (or other package manager) installed.
-Library supports Node.js version 18.x and above, and can be used in a client codebase. 
+Library supports Node.js version 18 and above, and can be used in a client codebase.
 <br />
 <br />
 
-```node
+```
 npm install @aims-api/aims-node
 ```
 
 ### Authentication
 
 In order to use the lirbary you need to obtain an API key. You can get a demo key by contating us at [hello@aimsapi.com](mailto:hello@aimsapi.com).
-
-After you have obtained your API key, you MAY USE the library on the client as well as on the server side.
 
 <details>
 <summary>
@@ -70,23 +70,55 @@ After you have obtained your API key, you MAY USE the library on the client as w
 
 </summary>
 
+TypeScript
+
 ```typescript
 // pages/api/searchByText.ts
 
 import { NextApiRequest, NextApiResponse } from 'next'
-
-const createSimilaritySearchClient = async (req: NextApiRequest) => {
-  return new SimilaritySearchApiClient({
-    authorization: YOUR_API_KEY,
-  })
-}
+import { Client as AIMSClient } from '@aims-api/aims-node'
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
     try {
       const { text, filter } = req.body
-      const client = await createSimilaritySearchClient(req)
-      const response = await client.endpoints.query.byText({ text, detailed: true, filter })
+      const aims = new AIMSClient({
+        authorization: 'YOUR_API_KEY',
+      })
+      const response = await aims.endpoints.query.byText({ text, detailed: true, filter })
+      return res.status(200).send(response)
+    } catch (error) {
+      return res.status(error.status).json(error.json)
+    }
+  }
+  return res.status(400).json('Method not allowed')
+}
+
+export default handler
+```
+
+<details>
+<summary>
+JavaScript
+</summary>
+
+```javascript
+// pages/api/searchByText.js
+
+import { Client as AIMSClient } from '@aims-api/aims-node'
+
+const handler = async (req, res) => {
+  if (req.method === 'POST') {
+    try {
+      const { text, filter } = req.body
+      const aims = new AIMSClient({
+        authorization: 'YOUR_API_KEY',
+      })
+      const response = await aims.endpoints.query.byText({
+        text,
+        detailed: true,
+        filter,
+      })
       return res.status(200).send(response)
     } catch (error) {
       return res.status(error.status).json(error.json)
@@ -99,18 +131,30 @@ export default handler
 ```
 
 </details>
+
+</details>
 </details>
 
 ## Usage
 
-Instructions on how to use our library.
+It is common to make a proxy request from client app to the server in order to hide foreign URL.
+
+### Typescript
+
+Library uses [Zod](https://github.com/colinhacks/zod) for response validation, therefore you can use the types that are provided in every endpoint file.
+
+#### Example
+
+```typescript
+import { type SearchResponse } from '@aims-api/aims-node/dist/endpoints/search'
+```
 
 ### Routes
 
-List of routes available in your project.
+List of all available endpoints could be found in [AIMS API Documentation](https://docs.aimsapi.com/) under Endpoints section, AIMS queries.
+
+### Error Handling
 
 ## License
 
 See [LICENSE](LICENSE) for more information.
-
-## Acknowledgements
