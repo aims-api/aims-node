@@ -7,7 +7,7 @@
   <br /> You MAY USE this library on the client as well as on the server side.
   <br />
   <br />
-  Reach for more information at <a href="https://aimsapi.com" target="_blank">aimsapi.com</a>
+  Reach for more information at <a href="https://aimsapi.com">aimsapi.com</a>
   <br />
   <br />
   <a href="https://github.com/aims-api/aims-node/issues/new">Report a Bug</a>
@@ -32,10 +32,10 @@
 
 - [Getting Started](#getting-started)
   - [Authentication](#authentication)
-  - [Next.js example](#Example-with-Next.js)
+  - [Next.js example](#example-with-nextjs)
 - [Usage](#usage)
   - [Routes](#routes)
-  - [Error Handling](#error-handling)
+  - [Response Structure](#response-structure)
 - [License](#license)
 
 </details>
@@ -139,6 +139,8 @@ export default handler
 
 It is common to make a proxy request from client app to the server in order to hide foreign URL.
 
+When you create a client instance in your codebase, you can then easily access all the existing endpoints via IDE autocomplete, as well as the required and optional parameters.
+
 ### Typescript
 
 Library uses [Zod](https://github.com/colinhacks/zod) for response validation, therefore you can use the types that are provided in every endpoint file.
@@ -151,9 +153,27 @@ import { type SearchResponse } from '@aims-api/aims-node/dist/endpoints/search'
 
 ### Routes
 
-List of all available endpoints could be found in [AIMS API Documentation](https://docs.aimsapi.com/) under Endpoints section, AIMS queries.
+The library provides a set of endpoints that can be found in [src/client/index.ts](/src/client/index.ts#L95) file by the `endpoints` property on line #95.
 
-### Error Handling
+List of all API endpoints could be found in [AIMS API Documentation](https://docs.aimsapi.com/) under Endpoints section, AIMS queries.
+
+### Response Structure
+
+Both network errors and response structure errors are handled within a library, so the response is always a valid JavaScript Object in the following structure:
+
+```javascript
+// successful request
+{
+  success: true
+  data: any
+}
+
+// failed request
+{
+  success: false
+  error: AxiosError | ZodError
+}
+```
 
 ## License
 
