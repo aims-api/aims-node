@@ -2,3 +2,14 @@
 node_modules
 test
 src
+CODEOWNERS
+.eslintignore
+.eslintrc.json
+.prettierrc
+jest.config.js
+tsconfig.json
+tsconfig.build.json
+.changeset
+.circleci
+.github
+
