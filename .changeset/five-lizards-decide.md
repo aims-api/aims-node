@@ -2,4 +2,4 @@
 '@aims-api/aims-node': patch
 ---
 
-readme added
+readme, licence were added
