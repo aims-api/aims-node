@@ -63,7 +63,7 @@ npm install @aims-api/aims-node
 
 In order to use the lirbary you need to obtain an API key. You can get a demo key by contating us at [hello@aimsapi.com](mailto:hello@aimsapi.com).
 
-<details>
+<details open="open">
 <summary>
 
 ### Example with Next.js
