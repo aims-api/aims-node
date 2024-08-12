@@ -5,8 +5,8 @@ module.exports = {
   moduleFileExtensions: ['js', 'json', 'ts'],
   extensionsToTreatAsEsm: ['.ts'],
   moduleNameMapper: {
-    '^(\\.{1,2}/.*)\\.js$': '$1'
+    '^(\\.{1,2}/.*)\\.js$': '$1',
   },
   testTimeout: 10000,
-  modulePathIgnorePatterns: ['<rootDir>/dist/']
+  modulePathIgnorePatterns: ['<rootDir>/dist/'],
 }

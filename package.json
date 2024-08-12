@@ -27,7 +27,8 @@
     "lint": "eslint '*/**/*.{js,jsx,ts,tsx}' && tsc --noEmit",
     "fix": "eslint '*/**/*.{js,jsx,ts,tsx}' --quiet --fix",
     "ci-lint": "eslint '*/**/*.{js,jsx,ts,tsx}' --quiet",
-    "test": "jest --runInBand",
+    "test-unit": "jest -c jest.config.unit.js --runInBand",
+    "test-integration": "jest -c jest.config.integration.js --runInBand",
     "publish-npm": "yarn build && changeset publish"
   },
   "dependencies": {
