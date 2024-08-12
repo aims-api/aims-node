@@ -7,6 +7,8 @@ CODEOWNERS
 .eslintrc.json
 .prettierrc
 jest.config.js
+jest.config.integration.js
+jest.config.unit.js
 tsconfig.json
 tsconfig.build.json
 .changeset
