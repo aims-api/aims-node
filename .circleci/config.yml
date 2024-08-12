@@ -19,6 +19,7 @@ jobs:
 
       - run: yarn install
       - run: yarn test
+      - run: yarn test-integration
       - run: yarn ci-lint
 
       - save_cache:
