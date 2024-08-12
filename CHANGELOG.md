@@ -1,5 +1,11 @@
 # @aims-api/aims-node
 
+## 0.0.5
+
+### Patch Changes
+
+- 4b54983: readme file updated, licence file was added, integration test flow added
+
 ## 0.0.4
 
 ### Patch Changes
