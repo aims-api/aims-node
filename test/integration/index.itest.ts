@@ -14,3 +14,18 @@ describe('Autocomplete endpoint', () => {
     })
   })
 })
+
+describe('Query byAudioFile endpoint', () => {
+  test('error, file not provided', async () => {
+    const testClient = new Client({
+      authorization: process.env.TEST_SECRET_TOKEN ?? '',
+    })
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const response = await testClient.endpoints.query.byAudioFile({ track: {} as any })
+
+    expect(response).toMatchObject({
+      success: false,
+    })
+  })
+})
