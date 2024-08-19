@@ -1,4 +1,4 @@
-import { describe, expect, test } from '@jest/globals'
+import { describe, expect, test, beforeAll } from '@jest/globals'
 import { Client } from '../../src/client'
 
 describe('Autocomplete endpoint', () => {
@@ -50,10 +50,49 @@ describe('Unified search endpoint', () => {
       authorization: process.env.TEST_SECRET_TOKEN ?? '',
     })
 
-    const response = await testClient.endpoints.search({ query: 'joyful sunny day' })
+    const response = await testClient.endpoints.search({ query: 'gondolas in venice' })
 
     expect(response).toMatchObject({
       success: true,
+    })
+  })
+})
+
+describe('Create and delete project', () => {
+  let testClient: Client
+  const projectKey = `pipeline-test-${Date.now()}`
+
+  beforeAll(() => {
+    testClient = new Client({
+      authorization: process.env.TEST_SECRET_TOKEN ?? '',
+    })
+  })
+
+  test('create a project', async () => {
+    const response = await testClient.endpoints.project.create({
+      title: 'pipeline-test',
+      key: projectKey,
+    })
+
+    expect(response).toMatchObject({
+      success: true,
+      data: {
+        collection: expect.objectContaining({
+          title: 'pipeline-test',
+          key: projectKey,
+        }),
+      },
+    })
+  })
+
+  test('delete a project', async () => {
+    const response = await testClient.endpoints.project.delete.byKey(projectKey)
+
+    expect(response).toMatchObject({
+      success: true,
+      data: {
+        message: expect.any(String),
+      },
     })
   })
 })
