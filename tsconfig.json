@@ -86,6 +86,6 @@
     "moduleDetection": "force",
     // "allowJs": true,
     "moduleResolution": "node16",
-    "module": "Node16"
+    "module": "node16"
   }
 }
