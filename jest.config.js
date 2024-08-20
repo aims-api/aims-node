@@ -9,5 +9,5 @@ module.exports = {
   },
   testTimeout: 10000,
   modulePathIgnorePatterns: ['<rootDir>/dist/'],
-  testRegex: '.*\\.test\\.ts$',
+  testRegex: '^((?!.*?/test/integration/).)*.test.ts$',
 }
