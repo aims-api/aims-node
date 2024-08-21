@@ -7,6 +7,6 @@ describe('Search endpoint', () => {
       authorization: process.env.TEST_SECRET_TOKEN ?? '',
     })
     const response = await testClient.endpoints.search({ query: 'gondolas in venice' })
-    expect(response.success).toEqual(false)
+    expect(response.success).toStrictEqual(true)
   })
 })

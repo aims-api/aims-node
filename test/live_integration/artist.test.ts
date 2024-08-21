@@ -9,6 +9,6 @@ describe('Artist endpoints', () => {
 
     const response = await testClient.endpoints.artist.get.byTitle({ title: '' })
 
-    expect(response.success).toEqual(false)
+    expect(response.success).toStrictEqual(false)
   })
 })

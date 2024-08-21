@@ -8,7 +8,7 @@ describe('Album endpoints', () => {
     })
 
     const response = await testClient.endpoints.album.get.byId({ id: '' })
-    expect(response.success).toEqual(false)
+    expect(response.success).toStrictEqual(false)
   })
 
   test('search similar albums by key', async () => {
@@ -17,6 +17,6 @@ describe('Album endpoints', () => {
     })
 
     const response = await testClient.endpoints.album.searchSimilar.byKey({ data: { key: '' } })
-    expect(response.success).toEqual(false)
+    expect(response.success).toStrictEqual(false)
   })
 })
