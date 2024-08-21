@@ -67,7 +67,7 @@ describe('Project endpoints', () => {
     expect(response.success).toStrictEqual(true)
   })
 
-  test('get tracks of collection, success', async () => {
+  test('get tracks of project, success', async () => {
     const response = await testClient.endpoints.project.getTracks.byKey({ id: projectKey })
     tracks = 'data' in response ? (response.data instanceof Error ? [] : response.data.tracks) : []
 
