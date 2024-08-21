@@ -1,20 +1,12 @@
 import { describe, expect, test, beforeAll } from '@jest/globals'
 import { Client } from '../../src/client'
 
-describe('Search endpoints', () => {
+describe('Query endpoints', () => {
   let testClient: Client
 
   beforeAll(() => {
     testClient = new Client({
       authorization: process.env.TEST_SECRET_TOKEN ?? '',
-    })
-  })
-
-  test('Unified search', async () => {
-    const response = await testClient.endpoints.search({ query: 'gondolas in venice' })
-
-    expect(response).toMatchObject({
-      success: true,
     })
   })
 

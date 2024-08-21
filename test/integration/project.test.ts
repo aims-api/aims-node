@@ -38,17 +38,6 @@ describe('Project manipulation', () => {
     })
   })
 
-  test('get tracks of collection, success', async () => {
-    const response = await testClient.endpoints.project.getTracks.byKey({ id: projectKey })
-
-    expect(response).toMatchObject({
-      success: true,
-      data: expect.objectContaining({
-        tracks: expect.any(Array),
-      }),
-    })
-  })
-
   test('update a project', async () => {
     const response = await testClient.endpoints.project.update.byKey({
       id: projectKey,
@@ -65,6 +54,35 @@ describe('Project manipulation', () => {
         }),
       },
     })
+  })
+
+  test('add track to project', async () => {
+    const response = await testClient.endpoints.project.addTrack.byFileUrl({
+      track: 'https://download.samplelib.com/mp3/sample-3s.mp3',
+      collection_key: projectKey,
+    })
+
+    expect(response.success).toStrictEqual(true)
+  })
+
+  test('get tracks of collection, success', async () => {
+    const response = await testClient.endpoints.project.getTracks.byKey({ id: projectKey })
+
+    expect(response).toMatchObject({
+      success: true,
+      data: expect.objectContaining({
+        tracks: expect.any(Array),
+      }),
+    })
+  })
+
+  test('delete track from project', async () => {
+    const response = await testClient.endpoints.project.removeTrack({
+      track_id: 'https://download.samplelib.com/mp3/sample-3s.mp3',
+      collection_key: projectKey,
+    })
+
+    expect(response.success).toStrictEqual(true)
   })
 
   test('delete a project', async () => {
