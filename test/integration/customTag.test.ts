@@ -29,6 +29,7 @@ describe('CustomTag endpoints', () => {
     const response = await testClient.endpoints.customTag.update.byKey({
       id: tagKey,
       data: { title: 'pipeline-test-updated', description: 'updated description' },
+      // Announcement: change of 'description' prop is not supported
     })
 
     expect(response).toMatchObject({
@@ -37,7 +38,6 @@ describe('CustomTag endpoints', () => {
         collection: expect.objectContaining({
           key: tagKey,
           title: 'pipeline-test-updated',
-          description: 'updated description',
         }),
       },
     })

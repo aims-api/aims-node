@@ -1,9 +1,11 @@
 import { describe, expect, test, beforeAll } from '@jest/globals'
 import { Client } from '../../src/client'
+import { TrackListResponse } from '../../src/helpers/types/track'
 
-describe('Project manipulation', () => {
+describe('Project endpoints', () => {
   let testClient: Client
   const projectKey = `pipeline-test-${Date.now()}`
+  let tracks: TrackListResponse['tracks']
 
   beforeAll(() => {
     testClient = new Client({
@@ -67,6 +69,7 @@ describe('Project manipulation', () => {
 
   test('get tracks of collection, success', async () => {
     const response = await testClient.endpoints.project.getTracks.byKey({ id: projectKey })
+    tracks = 'data' in response ? (response.data instanceof Error ? [] : response.data.tracks) : []
 
     expect(response).toMatchObject({
       success: true,
@@ -77,8 +80,9 @@ describe('Project manipulation', () => {
   })
 
   test('delete track from project', async () => {
+    console.log('available tracks:', tracks)
     const response = await testClient.endpoints.project.removeTrack({
-      track_id: 'https://download.samplelib.com/mp3/sample-3s.mp3',
+      track_id: tracks.length > 0 && tracks[0] !== undefined ? tracks[0].id_client : '',
       collection_key: projectKey,
     })
 
