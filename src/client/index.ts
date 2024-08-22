@@ -50,6 +50,7 @@ import { search } from '../endpoints/search'
 import { autocomplete } from '../endpoints/autocomplete'
 import { promptSuggestions } from '../endpoints/autocomplete/promptSuggestions'
 import { cloneSnapshot } from '../endpoints/collections/snapshot/clone'
+import { createPlaylistFromProject } from '../endpoints/collections/playlist/create'
 
 interface CredentialsOptions {
   authorization: string | null
@@ -185,6 +186,12 @@ class Client {
         create: createSnapshot(this.getClient),
         get: getSnapshot(this.getClient),
         clone: cloneSnapshot(this.getClient),
+      },
+      playlist: {
+        create: {
+          byKey: createPlaylistFromProject(this.getClient, 'by-key'),
+          byId: createPlaylistFromProject(this.getClient, 'by-id'),
+        },
       },
     },
     playlist: {
