@@ -1,5 +1,11 @@
 # @aims-api/aims-node
 
+## 0.0.6
+
+### Patch Changes
+
+- b0ea4bd: upgrading dependancies
+
 ## 0.0.5
 
 ### Patch Changes
