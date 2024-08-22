@@ -35,6 +35,7 @@ export const createPlaylistFromProject =
       const parserResponse = responseSchema.parse(response.data)
       return successResponse(parserResponse)
     } catch (error) {
+      console.log(error)
       return parseError(error)
     }
   }
