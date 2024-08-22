@@ -2,7 +2,7 @@ import { describe, expect, test } from '@jest/globals'
 import { Client } from '../../src/client'
 
 describe('Autocomplete endpoint', () => {
-  test('success, return data', async () => {
+  test('success, returns data', async () => {
     const testClient = new Client({
       authorization: process.env.TEST_SECRET_TOKEN ?? '',
     })

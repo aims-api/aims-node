@@ -42,7 +42,7 @@ const seedSchema = z.object({
 })
 
 export const searchResponseSchema = z.object({
-  aggregations: z.nullable(z.any()), // TODO
+  aggregations: z.nullable(z.any()), // Announcement: Future type for aggregations may be Record<string, {[string]: number, value: string}[]>
   did_you_mean: z.array(seedSchema),
   lyrics_search: lyricsSearchSchema,
   query_id: z.string(),
