@@ -50,48 +50,64 @@ describe('Playlist endpoints', () => {
   test('suggest tracks', async () => {
     const response = await testClient.endpoints.playlist.suggest.byKey({ id: playlistKey })
 
-    expect(response).toMatchObject({
-      success: true,
-      data: expect.objectContaining({
-        tracks: expect.any(Array),
-      }),
-    })
+    expect(response.success).toStrictEqual(false)
+
+    // success: false,
+    // error: {
+    //   code: 1001,
+    //   message: 'This functionality is currently not available. Please try again later!',
+    //   payload: []
+    // }
+    // expect(response).toMatchObject({
+    //   success: true,
+    //   data: expect.objectContaining({
+    //     tracks: expect.any(Array),
+    //   }),
+    // })
   })
 
   test('search similar playlists', async () => {
     const response = await testClient.endpoints.playlist.searchSimilar.byKey({ data: { key: playlistKey } })
 
+    expect(response.success).toStrictEqual(false)
+
+    // success: false,
+    // error: {
+    //   code: 1001,
+    //   message: 'This functionality is currently not available. Please try again later!',
+    //   payload: []
+    // }
+    // expect(response).toMatchObject({
+    //   success: true,
+    //   data: expect.objectContaining({
+    //     collections: expect.any(Array),
+    //   }),
+    // })
+  })
+
+  test('plug a playlist, fails', async () => {
+    const response = await testClient.endpoints.playlist.plug.byId({ track_id: '' })
+
+    expect(response.success).toStrictEqual(false)
+  })
+
+  test('delete track from playlist', async () => {
+    const response = await testClient.endpoints.playlist.removeTrack({
+      track_id: tracks.length > 0 && tracks[0] !== undefined ? tracks[0].id_client : '',
+      collection_key: playlistKey,
+    })
+
+    expect(response.success).toStrictEqual(true)
+  })
+
+  test('delete a playlist', async () => {
+    const response = await testClient.endpoints.playlist.delete.byKey(playlistKey)
+
     expect(response).toMatchObject({
       success: true,
-      data: expect.objectContaining({
-        collections: expect.any(Array),
-      }),
-    })
-
-    test('plug a playlist, fails', async () => {
-      const response = await testClient.endpoints.playlist.plug.byId({ track_id: '' })
-
-      expect(response.success).toStrictEqual(false)
-    })
-
-    test('delete track from playlist', async () => {
-      const response = await testClient.endpoints.playlist.removeTrack({
-        track_id: tracks.length > 0 && tracks[0] !== undefined ? tracks[0].id_client : '',
-        collection_key: playlistKey,
-      })
-
-      expect(response.success).toStrictEqual(true)
-    })
-
-    test('delete a playlist', async () => {
-      const response = await testClient.endpoints.playlist.delete.byKey(playlistKey)
-
-      expect(response).toMatchObject({
-        success: true,
-        data: {
-          message: expect.any(String),
-        },
-      })
+      data: {
+        message: expect.any(String),
+      },
     })
   })
 })
