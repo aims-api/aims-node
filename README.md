@@ -24,11 +24,7 @@
 </div>
 
 <details open="open">
-<summary>
-
-## Table of Contents
-
-</summary>
+<summary><h2>Table of Contents</h2></summary>
 
 - [Getting Started](#getting-started)
   - [Authentication](#authentication)
@@ -141,11 +137,11 @@ It is common to make a proxy request from client app to the server in order to h
 
 When you create a client instance in your codebase, you can then easily access all the existing endpoints via IDE autocomplete, as well as the required and optional parameters.
 
-### TypeScript
+#### TypeScript
 
 Library uses [Zod](https://github.com/colinhacks/zod) for response validation, therefore you can use the types that are provided in every endpoint file.
 
-#### Example
+Example
 
 ```typescript
 import { type SearchResponse } from '@aims-api/aims-node/dist/endpoints/search'
