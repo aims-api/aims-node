@@ -44,7 +44,7 @@ const seedSchema = z.object({
 const artistSchema = z.object({
   contact: z.string().nullable(),
   description: z.string().nullable(),
-  followers: z.number().nullable(),
+  followers: z.number(),
   id: z.string(),
   key: z.string(),
   keywords: z.array(z.string()),
@@ -60,7 +60,7 @@ const collectionsSchema = z.object({
 
 export const searchResponseSchema = z.object({
   aggregations: z.nullable(z.any()), // Announcement: Future type for aggregations may be Record<string, {[string]: number, value: string}[]>
-  collections: z.optional(collectionsSchema),
+  collections: collectionsSchema.optional(),
   lyrics_search: lyricsSearchSchema,
   did_you_mean: z.array(seedSchema),
   query_id: z.string(),
@@ -80,6 +80,7 @@ export const searchResponseSchema = z.object({
     'code-and-keyword',
     'code-and-prompt',
     'internal-and-prompt',
+    'seeds-only',
   ]),
 })
 
