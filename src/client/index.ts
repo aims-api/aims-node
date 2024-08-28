@@ -117,6 +117,10 @@ class Client {
         byKey: searchSimilarByKey(this.getClient, 'artists'),
         byId: searchSimilarById(this.getClient, 'artists'),
       },
+      getTracks: {
+        byKey: getTracks(this.getClient, 'artists', 'by-key'),
+        byId: getTracks(this.getClient, 'artists', 'by-id'),
+      },
     },
     customTag: {
       create: createCollection(this.getClient, 'custom-tag'),

@@ -5,7 +5,11 @@ import { TrackListResponse, trackListDetailedResponseSchema, trackListResponseSc
 import { QueryParams } from '../../helpers/types'
 
 export const getTracks =
-  (client: () => AxiosInstance, path: 'project' | 'playlist' | 'custom-tag' | 'albums', by: 'by-key' | 'by-id') =>
+  (
+    client: () => AxiosInstance,
+    path: 'project' | 'playlist' | 'custom-tag' | 'albums' | 'artists',
+    by: 'by-key' | 'by-id',
+  ) =>
   async ({ id, params }: { id: string; params?: QueryParams }): Promise<Response<TrackListResponse>> => {
     try {
       const response = await client().get(`/${API_VERSION}/${path}/get-tracks/${by}/${id}`, {
