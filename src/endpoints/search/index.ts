@@ -44,10 +44,10 @@ const seedSchema = z.object({
 const artistSchema = z.object({
   contact: z.string().nullable(),
   description: z.string().nullable(),
-  followers: z.number(),
+  followers: z.number().nullable(),
   id: z.string(),
   key: z.string(),
-  keywords: z.array(z.string()),
+  keywords: z.array(z.string()).nullable(),
   number_of_tracks: z.number(),
   owner: z.string().nullable(),
   processed_at: z.string().nullable(),
