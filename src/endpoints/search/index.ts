@@ -41,10 +41,28 @@ const seedSchema = z.object({
   included: z.boolean(),
 })
 
+const artistSchema = z.object({
+  contact: z.string().nullable(),
+  description: z.string().nullable(),
+  followers: z.number().nullable(),
+  id: z.string(),
+  key: z.string(),
+  keywords: z.array(z.string()),
+  number_of_tracks: z.number(),
+  owner: z.string().nullable(),
+  processed_at: z.string().nullable(),
+  title: z.string(),
+})
+
+const collectionsSchema = z.object({
+  artists: z.array(artistSchema).optional(),
+})
+
 export const searchResponseSchema = z.object({
   aggregations: z.nullable(z.any()), // Announcement: Future type for aggregations may be Record<string, {[string]: number, value: string}[]>
-  did_you_mean: z.array(seedSchema),
+  collections: z.optional(collectionsSchema),
   lyrics_search: lyricsSearchSchema,
+  did_you_mean: z.array(seedSchema),
   query_id: z.string(),
   totals: totalsSchema,
   tracks: z.array(trackSchema),
@@ -69,9 +87,14 @@ export type SearchResponse = z.infer<typeof searchResponseSchema>
 
 // Announcement: this type is used only by /src/client/index.ts endpoints
 export interface SearchRequest {
-  query: string
+  query?: string
   page?: number
   page_size?: number
+  ignore_track_results?: boolean
+  seeds?: Array<{ type: string; value: string }>
+  include_collection_result_types?: {
+    artists?: boolean
+  }
 }
 
 type Request = QueryParams & SearchRequest & Filtering
