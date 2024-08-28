@@ -1,5 +1,11 @@
 # @aims-api/aims-node
 
+## 0.0.7
+
+### Patch Changes
+
+- f637fe5: Artists search and tracks list
+
 ## 0.0.6
 
 ### Patch Changes
