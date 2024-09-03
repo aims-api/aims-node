@@ -4,8 +4,15 @@ import { parseError, successResponse, Response } from '../../../helpers/apiRespo
 import z from 'zod'
 
 const responseSchema = z.object({
-  id: z.string(),
-  message: z.string(),
+  collection: z.object({
+    id: z.string(),
+    key: z.string(),
+    processed_at: z.string(),
+    updated_at: z.string(),
+    title: z.string(),
+    description: z.string().nullable(),
+    auto_tagging_output: z.record(z.any()).nullable().optional(),
+  }),
 })
 
 export type CreatePlaylistResponse = z.infer<typeof responseSchema>
