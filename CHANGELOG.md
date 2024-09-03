@@ -1,5 +1,11 @@
 # @aims-api/aims-node
 
+## 0.0.9
+
+### Patch Changes
+
+- cf2b01c: create playlist from project
+
 ## 0.0.8
 
 ### Patch Changes
