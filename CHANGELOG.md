@@ -1,5 +1,11 @@
 # @aims-api/aims-node
 
+## 0.0.10
+
+### Patch Changes
+
+- f9cef2a: create playlist response schema
+
 ## 0.0.9
 
 ### Patch Changes
