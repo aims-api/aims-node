@@ -7,7 +7,7 @@ const responseSchema = z.object({
   collection: z.object({
     id: z.string(),
     key: z.string(),
-    processed_at: z.string(),
+    processed_at: z.string().nullable(),
     updated_at: z.string(),
     title: z.string(),
     description: z.string().nullable(),
