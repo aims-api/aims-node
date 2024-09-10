@@ -72,7 +72,7 @@ const artistSchema = z.object({
   number_of_tracks: z.number(),
   owner: z.string().nullable(),
   processed_at: z.string().nullable(),
-  title: z.string(), // searchResponseTypeSchema
+  title: z.string(),
 })
 
 const collectionsSchema = z.object({
@@ -87,7 +87,7 @@ export const searchResponseSchema = z.object({
   query_id: z.string(),
   totals: totalsSchema,
   tracks: z.array(trackSchema),
-  type: z.string(),
+  type: z.string(), // searchResponseTypeSchema
 })
 
 export type SearchResponse = z.infer<typeof searchResponseSchema>
