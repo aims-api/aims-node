@@ -1,5 +1,11 @@
 # @aims-api/aims-node
 
+## 0.0.11
+
+### Patch Changes
+
+- 0b5f29b: strict enum checks removed
+
 ## 0.0.10
 
 ### Patch Changes
