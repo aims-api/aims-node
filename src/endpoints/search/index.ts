@@ -7,8 +7,10 @@ import { lyricsSearchSchema, trackDetailedSchema, trackSchema } from '../../help
 import { totalsSchema } from '../../helpers/types/search'
 import { Filtering } from '../../helpers/filtering'
 
-// Announcement: too strict rule
-/* const seedTypeSchema = z.enum([
+/* 
+Announcement: too strict rules
+
+const seedTypeSchema = z.enum([
   'tag',
   'prompt',
   'url',
@@ -33,7 +35,26 @@ import { Filtering } from '../../helpers/filtering'
   'genres',
   'instruments',
   'decades',
-]) */
+]) 
+
+const searchResponseTypeSchema = z.enum([
+    'tag',
+    'prompt',
+    'url',
+    'internal',
+    'file-url',
+    'prompt-and-keyword',
+    'keyword',
+    'full-text',
+    'code',
+    'numeric',
+    'code-and-keyword',
+    'code-and-prompt',
+    'internal-and-prompt',
+    'seeds-only',
+  ])
+
+*/
 
 const seedSchema = z.object({
   type: z.string(), // seedTypeSchema,
@@ -51,7 +72,7 @@ const artistSchema = z.object({
   number_of_tracks: z.number(),
   owner: z.string().nullable(),
   processed_at: z.string().nullable(),
-  title: z.string(),
+  title: z.string(), // searchResponseTypeSchema
 })
 
 const collectionsSchema = z.object({
@@ -66,22 +87,7 @@ export const searchResponseSchema = z.object({
   query_id: z.string(),
   totals: totalsSchema,
   tracks: z.array(trackSchema),
-  type: z.enum([
-    'tag',
-    'prompt',
-    'url',
-    'internal',
-    'file-url',
-    'prompt-and-keyword',
-    'keyword',
-    'full-text',
-    'code',
-    'numeric',
-    'code-and-keyword',
-    'code-and-prompt',
-    'internal-and-prompt',
-    'seeds-only',
-  ]),
+  type: z.string(),
 })
 
 export type SearchResponse = z.infer<typeof searchResponseSchema>

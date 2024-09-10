@@ -13,9 +13,14 @@ export const totalsSchema = z.object({
   tracks: z.optional(totalSchema),
 })
 
+/* 
+Announcement: too strict rule
+const suggestionSchemaType = z.enum(['prompt', 'tag', 'track', 'album', 'playlist', 'artist'])
+*/
+
 export const suggestionSchema = z.object({
   value: z.string(),
-  type: z.enum(['prompt', 'tag', 'track', 'album', 'playlist', 'artist']),
+  type: z.string(), // suggestionSchemaType
   field: z.string(),
   id: z.string(),
   multiple: z.boolean(),
