@@ -1,5 +1,11 @@
 # @aims-api/aims-node
 
+## 0.0.12
+
+### Patch Changes
+
+- f7cea4a: artists search zod fix
+
 ## 0.0.11
 
 ### Patch Changes
