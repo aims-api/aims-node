@@ -69,7 +69,7 @@ const artistSchema = z.object({
   id: z.string(),
   key: z.string(),
   keywords: z.array(z.string()).nullable(),
-  number_of_tracks: z.number(),
+  number_of_tracks: z.number().nullable(),
   owner: z.string().nullable(),
   processed_at: z.string().nullable(),
   title: z.string(),
