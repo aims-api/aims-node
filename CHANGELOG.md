@@ -4,7 +4,8 @@
 
 ### Patch Changes
 
-- 7b7d8ac: - chore: user agent in request headers
+- 7b7d8ac:
+  - chore: user agent in request headers
   - revert: trackDetails share is a nullable number
 
 ## 0.0.13
