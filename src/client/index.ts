@@ -51,6 +51,7 @@ import { autocomplete } from '../endpoints/autocomplete'
 import { promptSuggestions } from '../endpoints/autocomplete/promptSuggestions'
 import { cloneSnapshot } from '../endpoints/collections/snapshot/clone'
 import { createPlaylistFromProject } from '../endpoints/collections/playlist/create'
+import { version } from '../../package.json'
 
 interface CredentialsOptions {
   authorization: string | null
@@ -79,6 +80,7 @@ class Client {
       headers: {
         Authorization: authorization,
         Cookie: cookie,
+        UserAgent: `aims-node/${version}`,
       },
       ...configOverride,
     }

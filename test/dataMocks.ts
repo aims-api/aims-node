@@ -45,7 +45,7 @@ export const trackDetails = {
   publishing_partner: null,
   publishing_partner_us: null,
   recognisable: true,
-  share: '1',
+  share: 0.1,
   top: true,
   subgenres: ['a', 'b'],
   categories: ['a', 'b'],
