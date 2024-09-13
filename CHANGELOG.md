@@ -1,5 +1,11 @@
 # @aims-api/aims-node
 
+## 0.0.13
+
+### Patch Changes
+
+- fe7fb49: share is nullable string
+
 ## 0.0.12
 
 ### Patch Changes
