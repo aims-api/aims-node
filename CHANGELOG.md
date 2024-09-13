@@ -1,5 +1,13 @@
 # @aims-api/aims-node
 
+## 0.0.14
+
+### Patch Changes
+
+- 7b7d8ac:
+  - chore: user agent in request headers
+  - revert: trackDetails share is a nullable number
+
 ## 0.0.13
 
 ### Patch Changes
