@@ -47,7 +47,7 @@ const trackOnlyDetailedSchema = z.object({
   publishing_partner: z.nullable(z.array(z.string())),
   publishing_partner_us: z.nullable(z.array(z.string())),
   recognisable: z.nullable(z.boolean()),
-  share: z.nullable(z.string()),
+  share: z.nullable(z.number()),
   top: z.nullable(z.boolean()),
   subgenres: z.nullable(z.array(z.string())),
   categories: z.nullable(z.array(z.string())),
