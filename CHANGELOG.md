@@ -1,5 +1,11 @@
 # @aims-api/aims-node
 
+## 0.0.16
+
+### Patch Changes
+
+- 88d4141: package version in user-agent header
+
 ## 0.0.15
 
 ### Patch Changes
