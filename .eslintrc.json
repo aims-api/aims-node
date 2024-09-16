@@ -1,17 +1,17 @@
 {
-    "parserOptions": {
-      "ecmaVersion": 2021,
-      "sourceType": "module",
-      "ecmaFeatures": {
-        "jsx": true
-      },
-      "project": "./tsconfig.json"
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
     },
-    "extends": ["plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
-    "rules": {
-      "@typescript-eslint/no-explicit-any": "error",
-      "@typescript-eslint/explicit-function-return-type": "off"
-    },
-    "root": true
-  }
-  
+    "project": "./tsconfig.json"
+  },
+  "extends": ["plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-var-requires": [0, { "allow": "['/package\\.json$']" }]
+  },
+  "root": true
+}
