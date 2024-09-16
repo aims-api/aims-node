@@ -1,5 +1,11 @@
 # @aims-api/aims-node
 
+## 0.0.15
+
+### Patch Changes
+
+- 51172a7: user-agent header
+
 ## 0.0.14
 
 ### Patch Changes
