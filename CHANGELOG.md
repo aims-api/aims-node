@@ -1,5 +1,11 @@
 # @aims-api/aims-node
 
+## 0.0.17
+
+### Patch Changes
+
+- 825704f: pass user id to headers through constructor
+
 ## 0.0.16
 
 ### Patch Changes
