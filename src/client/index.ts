@@ -56,6 +56,7 @@ interface CredentialsOptions {
   authorization: string | null
   cookie?: string
   apiHost?: string
+  userId?: string
 }
 
 interface InternalConfiguration {
@@ -73,13 +74,14 @@ class Client {
   }
 
   private readonly refreshClient = (configOverride = {}) => {
-    const { authorization, cookie, apiHost } = this.internal.credentials
+    const { authorization, cookie, apiHost, userId } = this.internal.credentials
     const config = {
       baseURL: apiHost,
       headers: {
         Authorization: authorization,
         Cookie: cookie,
         'User-Agent': `aims-node/${require('../../package.json').version}`,
+        'X-User-Id': userId,
       },
       ...configOverride,
     }
@@ -284,6 +286,7 @@ class Client {
         authorization: options?.authorization ?? null,
         cookie: options?.cookie,
         apiHost: options?.apiHost ?? API_HOST,
+        userId: options?.userId,
       },
     }
   }
