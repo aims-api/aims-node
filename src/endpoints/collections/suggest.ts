@@ -2,24 +2,25 @@ import { AxiosInstance } from 'axios'
 import { API_VERSION } from '../../consts'
 import { parseError, successResponse, Response } from '../../helpers/apiResponse'
 import { SimilarSearchResponse, similarSearchResponseSchema } from '../../helpers/types/track'
+import { Filtering } from '../../helpers/filtering'
 
 // ANNOUNC: this type is used only by /src/client/index.ts endpoints
-export interface ByKey {
+export type ByKey = {
   key: string
   id?: never
   page?: number
   page_size?: number
   group_id?: string
-}
+} & Filtering
 
 // ANNOUNC: this type is used only by /src/client/index.ts endpoints
-export interface ById {
+export type ById = {
   id: string
   key?: never
   page?: number
   page_size?: number
   group_id?: string
-}
+} & Filtering
 
 export const suggestTracks =
   (client: () => AxiosInstance, path: 'project' | 'playlist' | 'custom-tag', by: 'by-key' | 'by-id') =>
