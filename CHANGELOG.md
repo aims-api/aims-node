@@ -1,5 +1,11 @@
 # @aims-api/aims-node
 
+## 0.0.18
+
+### Patch Changes
+
+- da0c751: add filter params to suggestTracks method
+
 ## 0.0.17
 
 ### Patch Changes
