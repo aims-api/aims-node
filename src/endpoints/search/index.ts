@@ -73,6 +73,12 @@ const artistSchema = z.object({
   owner: z.string().nullable(),
   processed_at: z.string().nullable(),
   title: z.string(),
+  monthly_listeners: z.number().nullable(),
+  last_release_year: z.number().nullable(),
+  first_release_year: z.number().nullable(),
+  listener_territories: z.any().nullable(),
+  socials: z.any().nullable(),
+  on_tour: z.boolean().nullable(),
 })
 
 const collectionsSchema = z.object({
