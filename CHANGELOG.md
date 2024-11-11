@@ -1,5 +1,11 @@
 # @aims-api/aims-node
 
+## 0.0.19
+
+### Patch Changes
+
+- 54d06ce: add ar fields
+
 ## 0.0.18
 
 ### Patch Changes
