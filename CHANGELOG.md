@@ -1,5 +1,12 @@
 # @aims-api/aims-node
 
+## 0.0.20
+
+### Patch Changes
+
+- 3f587c4: similar artists endpoint update
+- 3f587c4: add ar fields
+
 ## 0.0.19
 
 ### Patch Changes
