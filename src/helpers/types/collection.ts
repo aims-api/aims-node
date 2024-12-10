@@ -60,6 +60,7 @@ export const similarCollectionsResponseSchemaDetailed = z.object({
 export type Collection = z.infer<typeof collectionSchema>
 export type CollectionResponse = z.infer<typeof collectionResponseSchema>
 export type SimilarCollectionsResponse = z.infer<typeof similarCollectionsResponseSchema>
+export type SimilarCollectionsResponseDetailed = z.infer<typeof similarCollectionsResponseSchemaDetailed>
 
 export interface SimilarCollectionsQueryParams {
   params?: {
