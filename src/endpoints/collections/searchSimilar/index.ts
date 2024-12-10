@@ -5,6 +5,7 @@ import {
   SimilarCollectionsQueryParams,
   SimilarCollectionsResponse,
   similarCollectionsResponseSchema,
+  similarCollectionsResponseSchemaDetailed,
 } from '../../../helpers/types/collection'
 import { SimilarSearchByKey } from './byKey'
 import { SimilarSearchById } from './byId'
@@ -19,7 +20,10 @@ export const searchSimilar = async (
     const response = await client().post(`/${API_VERSION}/${path}/similar/${by}`, request.data, {
       params: request.params,
     })
-    const parserResponse = similarCollectionsResponseSchema.parse(response.data)
+    const detailed = request.data?.detailed ?? false
+    const parserResponse = (
+      detailed ? similarCollectionsResponseSchemaDetailed : similarCollectionsResponseSchema
+    ).parse(response.data)
     return successResponse(parserResponse)
   } catch (error) {
     return parseError(error)

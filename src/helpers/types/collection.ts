@@ -28,11 +28,18 @@ export const collectionSchema = z.object({
 
 export const detailedCollectionSchema = z
   .object({
+    thumbnails: z.nullable(z.any()),
     followers: z.nullable(z.any()),
     owner: z.nullable(z.any()),
     contact: z.nullable(z.any()),
     number_of_tracks: z.number(),
     keywords: z.nullable(z.any()),
+    monthly_listeners: z.nullable(z.number()),
+    last_release_year: z.nullable(z.number()),
+    first_release_year: z.nullable(z.number()),
+    listener_territories: z.nullable(z.any()),
+    socials: z.nullable(z.any()),
+    on_tour: z.nullable(z.boolean()),
   })
   .merge(collectionSchema)
 
@@ -45,9 +52,15 @@ export const similarCollectionsResponseSchema = z.object({
   collections: z.array(collectionSchema),
 })
 
+export const similarCollectionsResponseSchemaDetailed = z.object({
+  query_id: z.string(),
+  collections: z.array(detailedCollectionSchema),
+})
+
 export type Collection = z.infer<typeof collectionSchema>
 export type CollectionResponse = z.infer<typeof collectionResponseSchema>
 export type SimilarCollectionsResponse = z.infer<typeof similarCollectionsResponseSchema>
+export type SimilarCollectionsResponseDetailed = z.infer<typeof similarCollectionsResponseSchemaDetailed>
 
 export interface SimilarCollectionsQueryParams {
   params?: {
