@@ -58,7 +58,7 @@ const searchResponseTypeSchema = z.enum([
 
 const seedSchema = z.object({
   type: z.string(), // seedTypeSchema,
-  value: z.string().or(trackDetailedSchema),
+  value: z.any(), // z.string().or(trackDetailedSchema),
   included: z.boolean(),
 })
 
