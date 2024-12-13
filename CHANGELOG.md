@@ -1,5 +1,11 @@
 # @aims-api/aims-node
 
+## 0.0.21
+
+### Patch Changes
+
+- 0154335: albumSchema in search endpoint
+
 ## 0.0.20
 
 ### Patch Changes
