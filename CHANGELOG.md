@@ -1,5 +1,11 @@
 # @aims-api/aims-node
 
+## 0.0.22
+
+### Patch Changes
+
+- 52d7c7d: weak type for seed value
+
 ## 0.0.21
 
 ### Patch Changes
