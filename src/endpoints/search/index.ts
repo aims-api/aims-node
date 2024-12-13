@@ -81,8 +81,30 @@ const artistSchema = z.object({
   on_tour: z.boolean().nullable(),
 })
 
+const albumSchema = z.object({
+  id: z.string(),
+  key: z.string(),
+  processed_at: z.string().nullable(),
+  title: z.string(),
+  // contact: z.string().nullable(),
+  description: z.string().nullable(),
+  first_release_year: z.string().nullable(),
+  followers: z.number().nullable(),
+  keywords: z.array(z.string()).nullable(),
+  last_release_year: z.string().nullable(),
+  listener_territories: z.array(z.string()).nullable(),
+  monthly_listeners: z.number().nullable(),
+  number_of_tracks: z.number(),
+  on_tour: z.boolean().nullable(),
+  owner: z.array(z.string()).nullable(),
+  socials: z.array(z.string()).nullable(),
+  thumbnails: z.record(z.string()).nullable(),
+  auto_tagging_output: z.optional(z.nullable(z.record(z.any()))),
+})
+
 const collectionsSchema = z.object({
   artists: z.array(artistSchema).optional(),
+  albums: z.array(albumSchema).optional(),
 })
 
 export const searchResponseSchema = z.object({
