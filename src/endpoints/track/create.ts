@@ -15,6 +15,7 @@ type Request = {
   track: ReadStream
   id_client: string
   track_name: string
+  hook_url?: string
   params?: QueryParams
   data?: Metadata
 }
