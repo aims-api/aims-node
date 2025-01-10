@@ -1,5 +1,11 @@
 # @aims-api/aims-node
 
+## 0.0.23
+
+### Patch Changes
+
+- 4d6df8b: "hook_url" added to "add new track" endpoint
+
 ## 0.0.22
 
 ### Patch Changes
