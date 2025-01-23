@@ -24,7 +24,7 @@ export const collectionSchema = z.object({
   title: z.string(),
   description: z.optional(z.nullable(z.string())),
   grouping_data: z.optional(z.nullable(groupingDataSchema)),
-  // thumbnails: z.nullable(z.record(z.string(), z.any)),
+  thumbnails: z.nullable(z.any()),
 })
 
 export const detailedCollectionSchema = z
