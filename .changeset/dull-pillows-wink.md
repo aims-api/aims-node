@@ -2,4 +2,4 @@
 '@aims-api/aims-node': patch
 ---
 
-pnpm and try build cmd
+try build cmd
