@@ -1,5 +1,12 @@
 # @aims-api/aims-node
 
+## 0.0.25
+
+### Patch Changes
+
+- 5baa78e: try build cmd
+- 5baa78e: thumbnails
+
 ## 0.0.24
 
 ### Patch Changes
