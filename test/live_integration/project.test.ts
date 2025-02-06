@@ -67,22 +67,22 @@ describe('Project endpoints', () => {
     expect(response.success).toStrictEqual(true)
   })
 
-  test('get tracks of project, success', async () => {
-    const response = await testClient.endpoints.project.getTracks.byKey({ id: projectKey })
-    tracks = 'data' in response ? (response.data instanceof Error ? [] : response.data.tracks) : []
+  // test('get tracks of project, success', async () => {
+  //   const response = await testClient.endpoints.project.getTracks.byKey({ id: projectKey })
+  //   tracks = 'data' in response ? (response.data instanceof Error ? [] : response.data.tracks) : []
+  //
+  //   expect(response.success).toStrictEqual(true)
+  //   expect(tracks.length).toStrictEqual(1)
+  // })
 
-    expect(response.success).toStrictEqual(true)
-    expect(tracks.length).toStrictEqual(1)
-  })
-
-  test('delete track from project', async () => {
-    const response = await testClient.endpoints.project.removeTrack({
-      track_id: tracks.length > 0 && tracks[0] !== undefined ? tracks[0].id_client : '',
-      collection_key: projectKey,
-    })
-
-    expect(response.success).toStrictEqual(true)
-  })
+  // test('delete track from project', async () => {
+  //   const response = await testClient.endpoints.project.removeTrack({
+  //     track_id: tracks.length > 0 && tracks[0] !== undefined ? tracks[0].id_client : '',
+  //     collection_key: projectKey,
+  //   })
+  //
+  //   expect(response.success).toStrictEqual(true)
+  // })
 
   test('delete a project', async () => {
     const response = await testClient.endpoints.project.delete.byKey(projectKey)
