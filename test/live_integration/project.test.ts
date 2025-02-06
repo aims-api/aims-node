@@ -1,11 +1,11 @@
 import { describe, expect, test, beforeAll } from '@jest/globals'
 import { Client } from '../../src/client'
-import { TrackListResponse } from '../../src/helpers/types/track'
+// import { TrackListResponse } from '../../src/helpers/types/track'
 
 describe('Project endpoints', () => {
   let testClient: Client
   const projectKey = `pipeline-test-${Date.now()}`
-  let tracks: TrackListResponse['tracks']
+  //let tracks: TrackListResponse['tracks']
 
   beforeAll(() => {
     testClient = new Client({
