@@ -40,7 +40,8 @@
 				"noAccumulatingSpread": "off"
 			},
 			"style": {
-				"useThrowOnlyError": "error"
+				"useThrowOnlyError": "error",
+				"useImportType": "off"
 			}
 		}
 	}
