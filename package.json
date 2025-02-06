@@ -17,17 +17,17 @@
 		"clean": "rimraf dist",
 		"start": "node ./bin/index.js",
 		"dev": "ts-node ./src/index.ts",
-		"prebuild": "pnpm run clean",
+		"prebuild": "yarn run clean",
 		"build": "tsc --target es2018 --project tsconfig.build.json",
 		"lint": "eslint '*/**/*.{js,jsx,ts,tsx}' && tsc --noEmit",
 		"fix": "eslint '*/**/*.{js,jsx,ts,tsx}' --quiet --fix",
 		"ci-lint": "eslint '*/**/*.{js,jsx,ts,tsx}' --quiet",
 		"test": "echo 'RUNNING UNIT TESTS' && jest --runInBand",
 		"test-integration": "jest -c jest.config.integration.js --runInBand",
-		"publish-npm": "pnpm build && changeset publish",
+		"publish-npm": "yarn build && changeset publish",
 		"rm-old-dist": "rm -rf ~/aims-app/apps/main/node_modules/@aims-api/aims-node/dist",
 		"cp-new-dist": "cp -r ~/aims-node/dist ~/aims-app/apps/main/node_modules/@aims-api/aims-node/dist",
-		"try-build": "pnpm build && pnpm rm-old-dist && pnpm cp-new-dist"
+		"try-build": "yarn build && yarn rm-old-dist && yarn cp-new-dist"
 	},
 	"dependencies": {
 		"axios": "1.7.4",
