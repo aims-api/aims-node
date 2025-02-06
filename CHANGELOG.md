@@ -1,5 +1,11 @@
 # @aims-api/aims-node
 
+## 0.0.24
+
+### Patch Changes
+
+- 9dde219: thumbnails
+
 ## 0.0.23
 
 ### Patch Changes
