@@ -79,6 +79,8 @@ const artistSchema = z.object({
   listener_territories: z.any().nullable(),
   socials: z.any().nullable(),
   on_tour: z.boolean().nullable(),
+  popularity: z.optional(z.number().nullable()),
+  featuring: z.optional(z.any().nullable()),
 })
 
 const albumSchema = z.object({
