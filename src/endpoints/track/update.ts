@@ -1,21 +1,22 @@
 import { AxiosInstance } from 'axios'
 import { API_VERSION } from '../../consts'
 import { parseError, Response, successResponse } from '../../helpers/apiResponse'
+import { ByClientId, BySystemId, QueryParams } from '../../helpers/types'
 import {
+  Metadata,
   TrackDetailedResponse,
   trackDetailedResponseSchema,
   TrackResponse,
   trackResponseSchema,
 } from '../../helpers/types/track'
-import { ByClientId, BySystemId, Metadata, QueryParams } from '../../helpers/types'
 
-type Request = (BySystemId | ByClientId) & QueryParams & { data?: Metadata }
+type Request = (BySystemId | ByClientId) & QueryParams & { data?: Partial<Metadata> }
 
 const callApi = async (
   client: () => AxiosInstance,
   path: string,
   id: string,
-  data: Metadata,
+  data: Partial<Metadata>,
   params: QueryParams,
 ): Promise<Response<TrackResponse | TrackDetailedResponse>> => {
   try {

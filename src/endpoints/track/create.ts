@@ -1,8 +1,9 @@
 import { AxiosInstance } from 'axios'
 import { API_VERSION } from '../../consts'
 import { parseError, Response, successResponse } from '../../helpers/apiResponse'
-import { Metadata, QueryParams } from '../../helpers/types'
+import { QueryParams } from '../../helpers/types'
 import {
+  Metadata,
   TrackDetailedResponse,
   trackDetailedResponseSchema,
   TrackResponse,
@@ -17,7 +18,7 @@ type Request = {
   track_name: string
   hook_url?: string
   params?: QueryParams
-  data?: Metadata
+  data?: Partial<Metadata>
 }
 
 export const getFormData = (request: Request): FormData => {
