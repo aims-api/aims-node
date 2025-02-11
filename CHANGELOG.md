@@ -1,5 +1,11 @@
 # @aims-api/aims-node
 
+## 0.0.26
+
+### Patch Changes
+
+- 692af28: add artists popularity and featuring
+
 ## 0.0.25
 
 ### Patch Changes
