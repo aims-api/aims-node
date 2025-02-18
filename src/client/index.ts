@@ -26,6 +26,7 @@ import { createCollection } from '../endpoints/collections/create'
 import { listCollection } from '../endpoints/collections/list'
 import { countCollections } from '../endpoints/collections/count'
 import { getCollection } from '../endpoints/collections/get'
+import { exportCollection } from '../endpoints/collections/export'
 import { updateCollection } from '../endpoints/collections/update'
 import { deleteCollection } from '../endpoints/collections/delete'
 import { addTrackToCollectionById } from '../endpoints/collections/addTrack/byId'
@@ -169,6 +170,10 @@ class Client {
       update: {
         byKey: updateCollection(this.getClient, 'project', 'by-key'),
         byId: updateCollection(this.getClient, 'project', 'by-id'),
+      },
+      export: {
+        byKey: exportCollection(this.getClient, 'project', 'by-key'),
+        byId: exportCollection(this.getClient, 'project', 'by-id'),
       },
       delete: {
         byKey: deleteCollection(this.getClient, 'project', 'by-key'),
