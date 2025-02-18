@@ -1,5 +1,11 @@
 # @aims-api/aims-node
 
+## 0.0.27
+
+### Patch Changes
+
+- 3748f9d: export collection
+
 ## 0.0.26
 
 ### Patch Changes
