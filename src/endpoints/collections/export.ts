@@ -12,7 +12,7 @@ export const exportCollection =
   (client: () => AxiosInstance, path: 'project', by: 'by-key' | 'by-id') =>
   async (request: ExportCollection): Promise<Response<any>> => {
     try {
-      await client().post(`/${API_VERSION}/${path}/update/${by}/${request.id}`)
+      await client().post(`/${API_VERSION}/${path}/export/${by}/${request.id}`)
       return successResponse(undefined)
     } catch (error) {
       if (error instanceof AxiosError && error.response?.status === 422) {
