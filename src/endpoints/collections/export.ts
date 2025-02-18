@@ -1,6 +1,10 @@
 import { AxiosInstance } from 'axios'
 import { API_VERSION } from '../../consts'
-import { parseError, successResponse, Response } from '../../helpers/apiResponse'
+import {
+  parseError,
+  successResponse,
+  Response,
+} from '../../helpers/apiResponse'
 import { AxiosError } from 'axios'
 
 // ANNOUNC: this type is used only by /src/client/index.ts endpoints
@@ -15,7 +19,13 @@ export const exportCollection =
       await client().post(`/${API_VERSION}/${path}/export/${by}/${request.id}`)
       return successResponse(undefined)
     } catch (error) {
-      if (error instanceof AxiosError && error.response?.status === 422) {
+      if (
+        error instanceof AxiosError &&
+        error.response?.status === 422 &&
+        (error.response?.data?.message ===
+          'Collection has already been exported!' ||
+          error.response?.data?.code === 1002)
+      ) {
         // case: collection already exported
         return successResponse(undefined)
       }
