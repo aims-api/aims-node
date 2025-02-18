@@ -14,7 +14,7 @@ export interface ExportCollection {
 
 export const exportCollection =
   (client: () => AxiosInstance, path: 'project', by: 'by-key' | 'by-id') =>
-  async (request: ExportCollection): Promise<Response<any>> => {
+  async (request: ExportCollection): Promise<Response<undefined>> => {
     try {
       await client().post(`/${API_VERSION}/${path}/export/${by}/${request.id}`)
       return successResponse(undefined)
