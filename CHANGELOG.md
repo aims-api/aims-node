@@ -1,5 +1,11 @@
 # @aims-api/aims-node
 
+## 0.0.29
+
+### Patch Changes
+
+- 027ec0a: creating collection with image
+
 ## 0.0.28
 
 ### Patch Changes
