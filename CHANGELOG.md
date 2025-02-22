@@ -1,5 +1,11 @@
 # @aims-api/aims-node
 
+## 0.0.30
+
+### Patch Changes
+
+- 213b328: fixed payload structure for update collection func
+
 ## 0.0.29
 
 ### Patch Changes
