@@ -5,7 +5,6 @@ import {
   successResponse,
   Response,
 } from '../../helpers/apiResponse'
-import { AxiosError } from 'axios'
 
 // ANNOUNC: this type is used only by /src/client/index.ts endpoints
 export interface ExportCollection {
