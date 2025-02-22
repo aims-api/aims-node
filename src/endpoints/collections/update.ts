@@ -26,7 +26,7 @@ export const updateCollection =
 
       if (isImageUploaded) {
         const data = new FormData()
-        transformObjToFormData(data, request)
+        transformObjToFormData(data, request.data)
         payload = data
       }
      
