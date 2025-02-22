@@ -21,7 +21,7 @@ export const parseError = (error: unknown): Error => {
   if (error instanceof AxiosError || error instanceof ZodError) {
     return {
       success: false,
-      error: error instanceof AxiosError ? error?.response?.data ?? error : error,
+      error: error instanceof AxiosError ? error?.response?.data ?? error?.response?.data.message ?? error : error,
     }
   }
   throw error
