@@ -3,7 +3,7 @@ import SpotifyWebApi from 'spotify-web-api-node'
 // TODO: vimeo deprecated, upgrade to https://www.npmjs.com/package/@vimeo/vimeo
 import { type RequestOptions, Vimeo } from 'vimeo'
 import { z } from 'zod'
-import { Request as Payload } from '../../endpoints/link-info'
+import { Request as Payload } from '../../endpoints/link-info/get'
 import { type LinkInfo, type LinkSource, LinkSources } from '../types/linkInfo'
 import { YouTubeDataAPI } from './YouTubeDataAPI'
 import { isSupportedStreamingServiceLink, iso8601ToSeconds } from './utils'
