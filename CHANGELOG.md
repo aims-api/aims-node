@@ -1,5 +1,11 @@
 # @aims-api/aims-node
 
+## 0.0.31
+
+### Patch Changes
+
+- 5291f44: linkInfo handler
+
 ## 0.0.30
 
 ### Patch Changes
