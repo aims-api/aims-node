@@ -22,7 +22,7 @@
 		"ci-lint": "biome check . --diagnostic-level=error && tsc --noEmit",
 		"format-and-lint:fix": "biome check . --diagnostic-level=error --write",
 		"test": "echo 'RUNNING UNIT TESTS' && node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand",
-		"test-integration": "jest -c jest.config.integration.js --runInBand",
+		"test-integration": "node --experimental-vm-modules node_modules/jest/bin/jest.js -c jest.config.integration.js --runInBand",
 		"publish-npm": "yarn build && changeset publish",
 		"rm-old-dist": "rm -rf ~/aims-app/apps/main/node_modules/@aims-api/aims-node/dist",
 		"cp-new-dist": "cp -r ~/aims-node/dist ~/aims-app/apps/main/node_modules/@aims-api/aims-node/dist",
