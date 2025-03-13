@@ -82,7 +82,7 @@ class Client {
       headers: {
         Authorization: authorization,
         Cookie: cookie,
-        'User-Agent': `aims-node/${require('../../package.json').version}`,
+        'User-Agent': 'aims-node/0.0.31',
         'X-User-Id': userId,
       },
       ...configOverride,

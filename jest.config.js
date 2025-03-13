@@ -10,4 +10,12 @@ module.exports = {
   testTimeout: 10000,
   modulePathIgnorePatterns: ['<rootDir>/dist/'],
   testRegex: '^((?!.*?/test/live_integration/).)*.test.ts$',
+  transform: {
+    '^.+\\.ts?$': [
+      'ts-jest',
+      {
+        useESM: true,
+      },
+    ],
+  },
 }
