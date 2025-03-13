@@ -1,13 +1,13 @@
 import { AxiosInstance } from 'axios'
 import { API_VERSION } from '../../consts'
-import { parseError, Response, successResponse } from '../../helpers/apiResponse'
+import { Response, parseError, successResponse } from '../../helpers/apiResponse'
+import { ByClientId, BySystemId, Metadata, QueryParams } from '../../helpers/types'
 import {
   TrackDetailedResponse,
-  trackDetailedResponseSchema,
   TrackResponse,
+  trackDetailedResponseSchema,
   trackResponseSchema,
 } from '../../helpers/types/track'
-import { ByClientId, BySystemId, Metadata, QueryParams } from '../../helpers/types'
 
 type Request = (BySystemId | ByClientId) & QueryParams & { data?: Metadata }
 

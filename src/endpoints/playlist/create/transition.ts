@@ -1,9 +1,9 @@
 import { AxiosInstance } from 'axios'
 import { Response } from '../../../helpers/apiResponse'
-import { SimilarSearchDetailedResponse, SimilarSearchResponse } from '../../../helpers/types/track'
 import { Filtering } from '../../../helpers/filtering'
-import { ClientSystem, createPlaylist, Link, File, PlaylistRequest } from './index'
 import { QueryParams } from '../../../helpers/types'
+import { SimilarSearchDetailedResponse, SimilarSearchResponse } from '../../../helpers/types/track'
+import { ClientSystem, File, Link, PlaylistRequest, createPlaylist } from './index'
 
 interface Transition {
   from_track: ClientSystem | Link | File

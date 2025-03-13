@@ -1,4 +1,4 @@
-import { describe, expect, test, beforeAll } from '@jest/globals'
+import { beforeAll, describe, expect, test } from '@jest/globals'
 import { Client } from '../../src/client'
 
 describe('Query endpoints', () => {
@@ -29,7 +29,7 @@ describe('Query endpoints', () => {
   })
 
   test('QueryByAudioFile', async () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // biome-ignore lint/suspicious/noExplicitAny: test purpose
     const response = await testClient.endpoints.query.byAudioFile({ track: {} as any })
 
     expect(response).toMatchObject({

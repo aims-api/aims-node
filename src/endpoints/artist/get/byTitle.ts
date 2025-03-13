@@ -1,7 +1,7 @@
 import { AxiosInstance } from 'axios'
-import { parseError, Response, successResponse } from '../../../helpers/apiResponse'
-import { CollectionsList, collectionsListSchema } from '../../../helpers/types/collection'
 import { API_VERSION } from '../../../consts'
+import { Response, parseError, successResponse } from '../../../helpers/apiResponse'
+import { CollectionsList, collectionsListSchema } from '../../../helpers/types/collection'
 
 // ANNOUNC: this type is used only by /src/client/index.ts endpoints
 export interface ByTitle {

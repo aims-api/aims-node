@@ -1,7 +1,7 @@
+import { ReadStream } from 'node:fs'
 import FormData from 'form-data'
-import { ReadStream } from 'fs'
 
-export const transformObjToFormData = (formdata: FormData, data: object, message: string = '') => {
+export const transformObjToFormData = (formdata: FormData, data: object, message = '') => {
   Object.entries(data).forEach(([key, value]) => {
     if (typeof value === 'boolean') {
       formdata.append(message === '' ? key : `${message}[${key}]`, `${value}`)

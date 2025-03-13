@@ -1,14 +1,14 @@
 import { AxiosInstance } from 'axios'
 import { API_VERSION } from '../../consts'
-import { emptyResultsResponse, parseError, Response, successResponse } from '../../helpers/apiResponse'
+import { Response, emptyResultsResponse, parseError, successResponse } from '../../helpers/apiResponse'
+import { Filtering } from '../../helpers/filtering'
+import { QueryParams } from '../../helpers/types'
 import {
   TrackListDetailedResponse,
-  trackListDetailedResponseSchema,
   TrackListResponse,
+  trackListDetailedResponseSchema,
   trackListResponseSchema,
 } from '../../helpers/types/track'
-import { QueryParams } from '../../helpers/types'
-import { Filtering } from '../../helpers/filtering'
 
 export interface SearchByName {
   name: string

@@ -1,4 +1,4 @@
-import { describe, expect, test, beforeAll } from '@jest/globals'
+import { beforeAll, describe, expect, test } from '@jest/globals'
 import { Client } from '../../src/client'
 
 describe('CustomTag endpoints', () => {

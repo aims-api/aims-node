@@ -1,6 +1,6 @@
 import { AxiosInstance } from 'axios'
 import { API_VERSION } from '../../../consts'
-import { parseError, successResponse, Response } from '../../../helpers/apiResponse'
+import { Response, parseError, successResponse } from '../../../helpers/apiResponse'
 import { MessageResponse, messageResponseSchema } from '../../../helpers/types'
 
 // ANNOUNC: both interfaces are used only by /src/client/index.ts endpoints

@@ -1,16 +1,9 @@
+import { ReadStream } from 'node:fs'
 import { AxiosInstance } from 'axios'
-import {
-  CollectionResponse,
-  collectionResponseSchema,
-} from '../../helpers/types/collection'
-import { API_VERSION } from '../../consts'
-import {
-  parseError,
-  successResponse,
-  Response,
-} from '../../helpers/apiResponse'
-import { ReadStream } from 'fs'
 import FormData from 'form-data'
+import { API_VERSION } from '../../consts'
+import { Response, parseError, successResponse } from '../../helpers/apiResponse'
+import { CollectionResponse, collectionResponseSchema } from '../../helpers/types/collection'
 import { transformObjToFormData } from '../../helpers/utils'
 
 // ANNOUNC: this type is used only by /src/client/index.ts endpoints
@@ -35,7 +28,7 @@ export const createCollection =
         transformObjToFormData(data, request)
         payload = data
       }
-      
+
       const response = await client().post(`/${API_VERSION}/${path}`, payload)
       const parserResponse = collectionResponseSchema.parse(response.data)
       return successResponse(parserResponse)

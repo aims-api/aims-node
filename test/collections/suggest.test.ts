@@ -1,12 +1,12 @@
-import { describe, expect, test, beforeAll, afterAll, afterEach } from '@jest/globals'
+import { afterAll, afterEach, beforeAll, describe, expect, test } from '@jest/globals'
 import { ZodError } from 'zod'
 
-import { testClient } from '../helpers'
-import { API_HOST, API_VERSION } from '../../src/consts'
 import { rest } from 'msw'
 import { setupServer } from 'msw/node'
-import { generalTrackProps } from '../dataMocks'
+import { API_HOST, API_VERSION } from '../../src/consts'
 import { SimilarSearchResponse } from '../../src/helpers/types/track'
+import { generalTrackProps } from '../dataMocks'
+import { testClient } from '../helpers'
 
 const projectById: SimilarSearchResponse = {
   query_id: 'query project by key',

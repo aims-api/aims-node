@@ -1,8 +1,8 @@
 import { AxiosInstance } from 'axios'
 import { Response } from '../../../helpers/apiResponse'
-import { searchSimilar } from './index'
-import { SimilarCollectionsQueryParams, SimilarCollectionsResponse } from '../../../helpers/types/collection'
 import { Filter } from '../../../helpers/filtering'
+import { SimilarCollectionsQueryParams, SimilarCollectionsResponse } from '../../../helpers/types/collection'
+import { searchSimilar } from './index'
 
 export interface SimilarSearchById {
   data: {

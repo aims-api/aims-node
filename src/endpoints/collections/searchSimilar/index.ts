@@ -1,14 +1,14 @@
 import { AxiosInstance } from 'axios'
 import { API_VERSION } from '../../../consts'
-import { parseError, Response, successResponse } from '../../../helpers/apiResponse'
+import { Response, parseError, successResponse } from '../../../helpers/apiResponse'
 import {
   SimilarCollectionsQueryParams,
   SimilarCollectionsResponse,
   similarCollectionsResponseSchema,
   similarCollectionsResponseSchemaDetailed,
 } from '../../../helpers/types/collection'
-import { SimilarSearchByKey } from './byKey'
 import { SimilarSearchById } from './byId'
+import { SimilarSearchByKey } from './byKey'
 
 export const searchSimilar = async (
   client: () => AxiosInstance,

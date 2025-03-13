@@ -1,10 +1,10 @@
+import { ReadStream } from 'node:fs'
 import { AxiosInstance } from 'axios'
-import { Response } from '../../../helpers/apiResponse'
-import { plug } from './index'
-import { SimilarCollectionsResponse } from '../../../helpers/types/collection'
-import { ReadStream } from 'fs'
 import FormData from 'form-data'
+import { Response } from '../../../helpers/apiResponse'
+import { SimilarCollectionsResponse } from '../../../helpers/types/collection'
 import { transformObjToFormData } from '../../../helpers/utils'
+import { plug } from './index'
 
 export interface ByFile {
   track: ReadStream
