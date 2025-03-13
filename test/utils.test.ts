@@ -1,9 +1,9 @@
+import fs from 'node:fs'
+import path from 'node:path'
 import { describe, expect, test } from '@jest/globals'
 import FormData from 'form-data'
-import { checkFormDataValue } from './helpers'
 import { transformObjToFormData } from '../src/helpers/utils'
-import fs from 'fs'
-import path from 'path'
+import { checkFormDataValue } from './helpers'
 
 describe('Utils', () => {
   test('transformObjToFormData - filtering', async () => {

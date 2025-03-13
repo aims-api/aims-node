@@ -1,9 +1,9 @@
+import { ReadStream } from 'node:fs'
 import { AxiosInstance } from 'axios'
-import { API_VERSION } from '../../../consts'
-import { parseError, successResponse, Response } from '../../../helpers/apiResponse'
-import { MessageResponse, messageResponseSchema } from '../../../helpers/types'
-import { ReadStream } from 'fs'
 import FormData from 'form-data'
+import { API_VERSION } from '../../../consts'
+import { Response, parseError, successResponse } from '../../../helpers/apiResponse'
+import { MessageResponse, messageResponseSchema } from '../../../helpers/types'
 import { transformObjToFormData } from '../../../helpers/utils'
 
 // ANNOUNC: this type is used only by /src/client/index.ts endpoints

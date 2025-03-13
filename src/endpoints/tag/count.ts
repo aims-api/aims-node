@@ -1,6 +1,6 @@
 import { AxiosInstance } from 'axios'
 import { API_VERSION } from '../../consts'
-import { parseError, Response, successResponse } from '../../helpers/apiResponse'
+import { Response, parseError, successResponse } from '../../helpers/apiResponse'
 import { CountResponse, countResponseSchema } from '../../helpers/types'
 
 const countTags = (client: () => AxiosInstance) => async (): Promise<Response<CountResponse>> => {

@@ -1,12 +1,12 @@
 import { AxiosInstance } from 'axios'
+import { API_VERSION } from '../../consts'
+import { Response, parseError, successResponse } from '../../helpers/apiResponse'
 import {
   CollectionsList,
   CollectionsListDetailed,
   collectionsListSchema,
   collectionsListSchemaDetailed,
 } from '../../helpers/types/collection'
-import { API_VERSION } from '../../consts'
-import { parseError, successResponse, Response } from '../../helpers/apiResponse'
 
 // ANNOUNC: this type is exported for /src/client/index.ts endpoints (TS bug?)
 export interface ListParams {

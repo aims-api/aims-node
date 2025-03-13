@@ -1,12 +1,12 @@
-import { describe, expect, test, beforeAll, afterAll, afterEach } from '@jest/globals'
+import { afterAll, afterEach, beforeAll, describe, expect, test } from '@jest/globals'
 import { ZodError } from 'zod'
 
-import { testClient } from '../helpers'
-import { API_HOST, API_VERSION } from '../../src/consts'
 import { rest } from 'msw'
 import { setupServer } from 'msw/node'
+import { API_HOST, API_VERSION } from '../../src/consts'
 import { TrackListDetailedResponse, TrackListResponse } from '../../src/helpers/types/track'
 import { generalTrackProps, trackDetails } from '../dataMocks'
+import { testClient } from '../helpers'
 
 const pagination = {
   item_count: 45,

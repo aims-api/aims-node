@@ -1,12 +1,12 @@
+import { ReadStream } from 'node:fs'
 import { AxiosInstance } from 'axios'
-import { Response } from '../../helpers/apiResponse'
-import { SimilarSearchResponse } from '../../helpers/types/track'
 import FormData from 'form-data'
-import { ReadStream } from 'fs'
+import { Response } from '../../helpers/apiResponse'
 import { Filtering } from '../../helpers/filtering'
+import { QueryParams } from '../../helpers/types'
+import { SimilarSearchResponse } from '../../helpers/types/track'
 import { transformObjToFormData } from '../../helpers/utils'
 import { query } from './index'
-import { QueryParams } from '../../helpers/types'
 
 export interface QueryByAudioFile {
   track: ReadStream

@@ -1,6 +1,6 @@
 import { AxiosInstance } from 'axios'
 import { API_VERSION } from '../../../consts'
-import { parseError, successResponse, Response } from '../../../helpers/apiResponse'
+import { Response, parseError, successResponse } from '../../../helpers/apiResponse'
 import { CollectionResponse, collectionResponseSchema } from '../../../helpers/types/collection'
 
 export type CreatePlaylistRequest = {

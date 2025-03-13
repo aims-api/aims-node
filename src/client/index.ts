@@ -1,57 +1,58 @@
-import { API_HOST } from '../consts'
 import axios, { AxiosInstance } from 'axios'
-import { download } from '../endpoints/download'
-import { getTrack } from '../endpoints/track/get'
-import { updateTrack } from '../endpoints/track/update'
-import { addNewTrack } from '../endpoints/track/create'
-import { deleteTrack } from '../endpoints/track/delete'
-import { listTracks } from '../endpoints/track/list'
-import { countTracks } from '../endpoints/track/count'
-import { listTags } from '../endpoints/tag/list'
-import { countTags } from '../endpoints/tag/count'
-import { singleSeed } from '../endpoints/playlist/create/singleSeed'
-import { byId } from '../endpoints/query/byId'
-import { byIds } from '../endpoints/query/byIds'
-import { byUrl } from '../endpoints/query/byUrl'
-import { byFileUrl } from '../endpoints/query/byFileUrl'
-import { byAudioFile } from '../endpoints/query/byAudioFile'
-import { byAudioFileHash } from '../endpoints/query/byAudioFileHash'
-import { byText } from '../endpoints/query/byText'
-import { byTextHash } from '../endpoints/query/byTextHash'
-import { byTag } from '../endpoints/query/byTag'
-import { multipleSeeds } from '../endpoints/playlist/create/multipleSeeds'
-import { transition } from '../endpoints/playlist/create/transition'
+import { API_HOST } from '../consts'
 import { byTitle as getArtistsByTitle } from '../endpoints/artist/get/byTitle'
-import { createCollection } from '../endpoints/collections/create'
-import { listCollection } from '../endpoints/collections/list'
-import { countCollections } from '../endpoints/collections/count'
-import { getCollection } from '../endpoints/collections/get'
-import { exportCollection } from '../endpoints/collections/export'
-import { updateCollection } from '../endpoints/collections/update'
-import { deleteCollection } from '../endpoints/collections/delete'
-import { addTrackToCollectionById } from '../endpoints/collections/addTrack/byId'
-import { addTrackToCollectionByUrl } from '../endpoints/collections/addTrack/byUrl'
-import { addTrackToCollectionByFileUrl } from '../endpoints/collections/addTrack/byFileUrl'
-import { addTrackToCollectionByFile } from '../endpoints/collections/addTrack/byFile'
-import { getTracks } from '../endpoints/collections/getTracks'
-import { deleteTrackFromCollection } from '../endpoints/collections/deleteTrack'
-import { suggestTracks } from '../endpoints/collections/suggest'
-import { byKey as searchSimilarByKey } from '../endpoints/collections/searchSimilar/byKey'
-import { byId as searchSimilarById } from '../endpoints/collections/searchSimilar/byId'
-import { plugById } from '../endpoints/collections/plug/byId'
-import { plugByUrl } from '../endpoints/collections/plug/byUrl'
-import { plugByFileUrl } from '../endpoints/collections/plug/byFileUrl'
-import { plugByFile } from '../endpoints/collections/plug/byFile'
-import { getWaveform } from '../endpoints/track/waveform'
-import { searchTracks } from '../endpoints/track/search'
-import { getValues } from '../endpoints/track/values'
-import { createSnapshot } from '../endpoints/collections/snapshot/create'
-import { getSnapshot } from '../endpoints/collections/snapshot/get'
-import { search } from '../endpoints/search'
 import { autocomplete } from '../endpoints/autocomplete'
 import { promptSuggestions } from '../endpoints/autocomplete/promptSuggestions'
-import { cloneSnapshot } from '../endpoints/collections/snapshot/clone'
+import { addTrackToCollectionByFile } from '../endpoints/collections/addTrack/byFile'
+import { addTrackToCollectionByFileUrl } from '../endpoints/collections/addTrack/byFileUrl'
+import { addTrackToCollectionById } from '../endpoints/collections/addTrack/byId'
+import { addTrackToCollectionByUrl } from '../endpoints/collections/addTrack/byUrl'
+import { countCollections } from '../endpoints/collections/count'
+import { createCollection } from '../endpoints/collections/create'
+import { deleteCollection } from '../endpoints/collections/delete'
+import { deleteTrackFromCollection } from '../endpoints/collections/deleteTrack'
+import { exportCollection } from '../endpoints/collections/export'
+import { getCollection } from '../endpoints/collections/get'
+import { getTracks } from '../endpoints/collections/getTracks'
+import { listCollection } from '../endpoints/collections/list'
 import { createPlaylistFromProject } from '../endpoints/collections/playlist/create'
+import { plugByFile } from '../endpoints/collections/plug/byFile'
+import { plugByFileUrl } from '../endpoints/collections/plug/byFileUrl'
+import { plugById } from '../endpoints/collections/plug/byId'
+import { plugByUrl } from '../endpoints/collections/plug/byUrl'
+import { byId as searchSimilarById } from '../endpoints/collections/searchSimilar/byId'
+import { byKey as searchSimilarByKey } from '../endpoints/collections/searchSimilar/byKey'
+import { cloneSnapshot } from '../endpoints/collections/snapshot/clone'
+import { createSnapshot } from '../endpoints/collections/snapshot/create'
+import { getSnapshot } from '../endpoints/collections/snapshot/get'
+import { suggestTracks } from '../endpoints/collections/suggest'
+import { updateCollection } from '../endpoints/collections/update'
+import { download } from '../endpoints/download'
+import { get } from '../endpoints/link-info/get'
+import { multipleSeeds } from '../endpoints/playlist/create/multipleSeeds'
+import { singleSeed } from '../endpoints/playlist/create/singleSeed'
+import { transition } from '../endpoints/playlist/create/transition'
+import { byAudioFile } from '../endpoints/query/byAudioFile'
+import { byAudioFileHash } from '../endpoints/query/byAudioFileHash'
+import { byFileUrl } from '../endpoints/query/byFileUrl'
+import { byId } from '../endpoints/query/byId'
+import { byIds } from '../endpoints/query/byIds'
+import { byTag } from '../endpoints/query/byTag'
+import { byText } from '../endpoints/query/byText'
+import { byTextHash } from '../endpoints/query/byTextHash'
+import { byUrl } from '../endpoints/query/byUrl'
+import { search } from '../endpoints/search'
+import { countTags } from '../endpoints/tag/count'
+import { listTags } from '../endpoints/tag/list'
+import { countTracks } from '../endpoints/track/count'
+import { addNewTrack } from '../endpoints/track/create'
+import { deleteTrack } from '../endpoints/track/delete'
+import { getTrack } from '../endpoints/track/get'
+import { listTracks } from '../endpoints/track/list'
+import { searchTracks } from '../endpoints/track/search'
+import { updateTrack } from '../endpoints/track/update'
+import { getValues } from '../endpoints/track/values'
+import { getWaveform } from '../endpoints/track/waveform'
 
 interface CredentialsOptions {
   authorization: string | null
@@ -81,7 +82,7 @@ class Client {
       headers: {
         Authorization: authorization,
         Cookie: cookie,
-        'User-Agent': `aims-node/${require('../../package.json').version}`,
+        'User-Agent': 'aims-node/0.0.31',
         'X-User-Id': userId,
       },
       ...configOverride,
@@ -283,6 +284,7 @@ class Client {
     autocomplete: autocomplete(this.getClient),
     promptSuggestions: promptSuggestions(this.getClient),
     search: search(this.getClient),
+    linkInfo: get,
   }
 
   constructor(options?: CredentialsOptions) {
@@ -297,4 +299,4 @@ class Client {
   }
 }
 
-export { Client, InternalConfiguration }
+export { Client, type InternalConfiguration }

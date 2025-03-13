@@ -1,11 +1,11 @@
-import { describe, expect, test, beforeAll, afterAll, afterEach } from '@jest/globals'
+import { afterAll, afterEach, beforeAll, describe, expect, test } from '@jest/globals'
 import { ZodError } from 'zod'
 
-import { testClient } from '../../helpers'
-import { API_HOST, API_VERSION } from '../../../src/consts'
 import { rest } from 'msw'
 import { setupServer } from 'msw/node'
+import { API_HOST, API_VERSION } from '../../../src/consts'
 import { CreateSnapshotRequest, CreateSnapshotResponse } from '../../../src/endpoints/collections/snapshot/create'
+import { testClient } from '../../helpers'
 
 const createProjectSnapshotRequest: CreateSnapshotRequest = {
   collection_key: 'test title',

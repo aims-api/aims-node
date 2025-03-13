@@ -1,11 +1,11 @@
 import { AxiosInstance } from 'axios'
-import { API_VERSION } from '../../consts'
-import { parseError, Response, successResponse } from '../../helpers/apiResponse'
 import { z } from 'zod'
-import { QueryParams } from '../../helpers/types'
-import { lyricsSearchSchema, trackDetailedSchema, trackSchema } from '../../helpers/types/track'
-import { totalsSchema } from '../../helpers/types/search'
+import { API_VERSION } from '../../consts'
+import { Response, parseError, successResponse } from '../../helpers/apiResponse'
 import { Filtering } from '../../helpers/filtering'
+import { QueryParams } from '../../helpers/types'
+import { totalsSchema } from '../../helpers/types/search'
+import { lyricsSearchSchema, trackDetailedSchema, trackSchema } from '../../helpers/types/track'
 
 /* 
 Announcement: too strict rules

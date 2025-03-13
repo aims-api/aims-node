@@ -1,15 +1,15 @@
-import { describe, expect, test, beforeAll, afterAll, afterEach } from '@jest/globals'
-import { setupServer } from 'msw/node'
+import { afterAll, afterEach, beforeAll, describe, expect, test } from '@jest/globals'
 import { rest } from 'msw'
-import { API_HOST, API_VERSION } from '../../src/consts'
+import { setupServer } from 'msw/node'
 import { ZodError } from 'zod'
+import { API_HOST, API_VERSION } from '../../src/consts'
 
-import { TrackDetailedResponse, TrackResponse } from '../../src/helpers/types/track'
-import fs from 'fs'
-import path from 'path'
+import fs from 'node:fs'
+import path from 'node:path'
 import { getFormData } from '../../src/endpoints/track/create'
-import { checkFormDataValue, testClient } from '../helpers'
+import { TrackDetailedResponse, TrackResponse } from '../../src/helpers/types/track'
 import { generalTrackProps, trackDetails } from '../dataMocks'
+import { checkFormDataValue, testClient } from '../helpers'
 
 const responseDataDetailed: TrackDetailedResponse = {
   track: {

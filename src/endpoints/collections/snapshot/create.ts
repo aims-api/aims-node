@@ -1,7 +1,7 @@
 import { AxiosInstance } from 'axios'
-import { API_VERSION } from '../../../consts'
-import { parseError, successResponse, Response } from '../../../helpers/apiResponse'
 import z from 'zod'
+import { API_VERSION } from '../../../consts'
+import { Response, parseError, successResponse } from '../../../helpers/apiResponse'
 
 const responseSchema = z.object({
   id: z.string(),

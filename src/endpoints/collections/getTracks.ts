@@ -1,8 +1,8 @@
 import { AxiosInstance } from 'axios'
 import { API_VERSION } from '../../consts'
-import { parseError, successResponse, Response, emptyResultsResponse } from '../../helpers/apiResponse'
-import { TrackListResponse, trackListDetailedResponseSchema, trackListResponseSchema } from '../../helpers/types/track'
+import { Response, emptyResultsResponse, parseError, successResponse } from '../../helpers/apiResponse'
 import { QueryParams } from '../../helpers/types'
+import { TrackListResponse, trackListDetailedResponseSchema, trackListResponseSchema } from '../../helpers/types/track'
 
 export const getTracks =
   (

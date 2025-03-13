@@ -1,17 +1,17 @@
+import { ReadStream } from 'node:fs'
 import { AxiosInstance } from 'axios'
+import FormData from 'form-data'
 import { API_VERSION } from '../../../consts'
-import { parseError, Response, successResponse } from '../../../helpers/apiResponse'
+import { Response, parseError, successResponse } from '../../../helpers/apiResponse'
 import {
   SimilarSearchDetailedResponse,
-  similarSearchDetailedResponseSchema,
   SimilarSearchResponse,
+  similarSearchDetailedResponseSchema,
   similarSearchResponseSchema,
 } from '../../../helpers/types/track'
-import FormData from 'form-data'
-import { ReadStream } from 'fs'
 import { transformObjToFormData } from '../../../helpers/utils'
-import { SingleSeedRequest } from './singleSeed'
 import { MultipleSeedsRequest } from './multipleSeeds'
+import { SingleSeedRequest } from './singleSeed'
 import { TransitionRequest } from './transition'
 
 export interface ClientSystem {

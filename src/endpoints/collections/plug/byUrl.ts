@@ -1,7 +1,7 @@
 import { AxiosInstance } from 'axios'
 import { Response } from '../../../helpers/apiResponse'
-import { plug } from './index'
 import { SimilarCollectionsResponse } from '../../../helpers/types/collection'
+import { plug } from './index'
 
 export interface ByUrl {
   link: string

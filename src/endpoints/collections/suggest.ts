@@ -1,8 +1,8 @@
 import { AxiosInstance } from 'axios'
 import { API_VERSION } from '../../consts'
-import { parseError, successResponse, Response } from '../../helpers/apiResponse'
-import { SimilarSearchResponse, similarSearchResponseSchema } from '../../helpers/types/track'
+import { Response, parseError, successResponse } from '../../helpers/apiResponse'
 import { Filtering } from '../../helpers/filtering'
+import { SimilarSearchResponse, similarSearchResponseSchema } from '../../helpers/types/track'
 
 // ANNOUNC: this type is used only by /src/client/index.ts endpoints
 export type ByKey = {

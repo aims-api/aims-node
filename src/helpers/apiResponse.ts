@@ -4,7 +4,7 @@ import { ZodError } from 'zod'
 type APIError = {
   code: number
   message: string
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: types should be extracted from handlers
   payload?: Record<string, any>
 }
 
@@ -21,7 +21,7 @@ export const parseError = (error: unknown): Error => {
   if (error instanceof AxiosError || error instanceof ZodError) {
     return {
       success: false,
-      error: error instanceof AxiosError ? error?.response?.data ?? error : error,
+      error: error instanceof AxiosError ? (error?.response?.data ?? error) : error,
     }
   }
   throw error

@@ -1,15 +1,15 @@
+import { ReadStream } from 'node:fs'
 import { AxiosInstance } from 'axios'
+import FormData from 'form-data'
 import { API_VERSION } from '../../consts'
-import { parseError, Response, successResponse } from '../../helpers/apiResponse'
+import { Response, parseError, successResponse } from '../../helpers/apiResponse'
 import { Metadata, QueryParams } from '../../helpers/types'
 import {
   TrackDetailedResponse,
-  trackDetailedResponseSchema,
   TrackResponse,
+  trackDetailedResponseSchema,
   trackResponseSchema,
 } from '../../helpers/types/track'
-import { ReadStream } from 'fs'
-import FormData from 'form-data'
 
 type Request = {
   track: ReadStream

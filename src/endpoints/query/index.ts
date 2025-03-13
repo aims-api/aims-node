@@ -1,24 +1,24 @@
 import { AxiosInstance } from 'axios'
+import FormData from 'form-data'
 import { API_VERSION } from '../../consts'
-import { parseError, Response, successResponse } from '../../helpers/apiResponse'
+import { Response, parseError, successResponse } from '../../helpers/apiResponse'
+import { Filtering } from '../../helpers/filtering'
+import { QueryParams } from '../../helpers/types'
 import {
   SimilarSearchDetailedResponse,
-  similarSearchDetailedResponseSchema,
   SimilarSearchResponse,
+  similarSearchDetailedResponseSchema,
   similarSearchResponseSchema,
 } from '../../helpers/types/track'
-import FormData from 'form-data'
-import { Filtering } from '../../helpers/filtering'
-import { QueryById } from './byId'
 import { QueryByAudioFile } from './byAudioFile'
-import { QueryByIds } from './byIds'
 import { QueryByAudioFileHash } from './byAudioFileHash'
-import { QueryByUrl } from './byUrl'
 import { QueryByFileUrl } from './byFileUrl'
-import { QueryByText } from './byText'
+import { QueryById } from './byId'
+import { QueryByIds } from './byIds'
 import { QueryByTag } from './byTag'
-import { QueryParams } from '../../helpers/types'
+import { QueryByText } from './byText'
 import { QueryByTextHash } from './byTextHash'
+import { QueryByUrl } from './byUrl'
 
 type Request = (
   | QueryById

@@ -1,4 +1,4 @@
-import { describe, expect, it, beforeAll } from '@jest/globals'
+import { beforeAll, describe, expect, it } from '@jest/globals'
 import { Client } from '../../src/client'
 
 describe('Track endpoints', () => {

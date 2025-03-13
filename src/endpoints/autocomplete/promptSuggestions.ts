@@ -1,6 +1,6 @@
 import { AxiosInstance } from 'axios'
 import { API_VERSION } from '../../consts'
-import { parseError, Response, successResponse } from '../../helpers/apiResponse'
+import { Response, parseError, successResponse } from '../../helpers/apiResponse'
 import { AutocompleteResponse, autocompleteRawResponseSchema } from '../../helpers/types/search'
 
 export const promptSuggestions =
