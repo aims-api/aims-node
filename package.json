@@ -1,10 +1,15 @@
 {
 	"name": "@aims-api/aims-node",
-	"version": "0.0.31",
+	"version": "0.0.32",
 	"license": "UNLICENSED",
 	"homepage": "https://github.com/aims-api/aims-node",
 	"author": "AIMS API <support@aimsapi.com> (https://aimsapi.com/)",
-	"keywords": ["music search", "similarity search", "lyrics search", "api"],
+	"keywords": [
+		"music search",
+		"similarity search",
+		"lyrics search",
+		"api"
+	],
 	"repository": {
 		"type": "git",
 		"url": "git://github.com/aims-api/aims-node.git"

@@ -1,5 +1,12 @@
 # @aims-api/aims-node
 
+## 0.0.32
+
+### Patch Changes
+
+- b31899e: linkInfo handler
+- b31899e: tsup bundler, esm output, link handler
+
 ## 0.0.31
 
 ### Patch Changes
