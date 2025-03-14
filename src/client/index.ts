@@ -1,4 +1,5 @@
 import axios, { AxiosInstance } from 'axios'
+import pkg from '../../package.json'
 import { API_HOST } from '../consts'
 import { byTitle as getArtistsByTitle } from '../endpoints/artist/get/byTitle'
 import { autocomplete } from '../endpoints/autocomplete'
@@ -82,7 +83,7 @@ class Client {
       headers: {
         Authorization: authorization,
         Cookie: cookie,
-        'User-Agent': 'aims-node/0.0.31',
+        'User-Agent': `aims-node/${pkg.version}`,
         'X-User-Id': userId,
       },
       ...configOverride,

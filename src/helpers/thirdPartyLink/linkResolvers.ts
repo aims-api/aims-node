@@ -1,12 +1,13 @@
 import { fetchSong, fetchToken } from 'node-apple-music'
 import SpotifyWebApi from 'spotify-web-api-node'
+import TikAPI from 'tikapi'
 // TODO: vimeo deprecated, upgrade to https://www.npmjs.com/package/@vimeo/vimeo
 import { type RequestOptions, Vimeo } from 'vimeo'
 import { z } from 'zod'
 import { Request as Payload } from '../../endpoints/link-info/get'
 import { type LinkInfo, type LinkSource, LinkSources } from '../types/linkInfo'
 import { YouTubeDataAPI } from './YouTubeDataAPI'
-import { isSupportedStreamingServiceLink, iso8601ToSeconds } from './utils'
+import { iso8601ToSeconds } from './utils'
 
 const youTubeIdResolver = (link: URL): string => {
   const QUERY_PARAMETER_VIDEO_ID = 'v'
@@ -331,7 +332,6 @@ const tikTokProcessor = async (link: URL, credentials: AuthPayload): Promise<Lin
   if (typeof credentials !== 'string') {
     throw Error('Provide credentials for TikTok API')
   }
-  const TikAPI = require('tikapi').default
   const tikTokApi = TikAPI(credentials)
   const response = await tikTokApi.public.video({ id })
   if (!response.ok) {
@@ -480,34 +480,27 @@ const processors = {
 }
 
 const getLinkType = (link: string): LinkSource => {
-  if (link.match(/(youtu\.be|youtube\.com|ytimg\.com)/i) !== null) {
-    return LinkSources.YOUTUBE
+  switch (true) {
+    case link.match(/(youtu\.be|youtube\.com|ytimg\.com)/i) !== null:
+      return LinkSources.YOUTUBE
+    case link.match(/(vimeo\.com|vimeocdn\.com|vimeopro\.com)/i) !== null:
+      return LinkSources.VIMEO
+    case link.match(/(tiktok\.com)/i) !== null:
+      return LinkSources.TIKTOK
+    case link.match(/(open\.spotify\.com)/i) !== null:
+      return LinkSources.SPOTIFY
+    case link.match(/(soundcloud\.com)/i) !== null:
+      return LinkSources.SOUNDCLOUD
+    case link.match(/(music\.apple\.com)/i) !== null:
+      return LinkSources.APPLE_MUSIC
+    default:
+      throw Error('The link is not supported')
   }
-  if (link.match(/(vimeo\.com|vimeocdn\.com|vimeopro\.com)/i) !== null) {
-    return LinkSources.VIMEO
-  }
-  if (link.match(/(tiktok\.com)/i) !== null) {
-    return LinkSources.TIKTOK
-  }
-  if (link.match(/(open\.spotify\.com)/i) !== null) {
-    return LinkSources.SPOTIFY
-  }
-  if (link.match(/(soundcloud\.com)/i) !== null) {
-    return LinkSources.SOUNDCLOUD
-  }
-  if (link.match(/(music\.apple\.com)/i) !== null) {
-    return LinkSources.APPLE_MUSIC
-  }
-  throw Error('The link is not supported')
 }
 
 type AuthPayload = undefined | string | { clientId: string; clientSecret: string }
 
 const getLinkInfo = async (payload: Payload): Promise<LinkInfo> => {
-  if (!isSupportedStreamingServiceLink(payload.link)) {
-    throw Error('The link is not supported')
-  }
-
   const linkType = getLinkType(payload.link)
   const processor = processors[linkType]
 
