@@ -16,7 +16,7 @@
 		}
 	},
 	"files": {
-		"ignore": ["dist", ".changest", ".github"]
+		"ignore": ["dist", ".changeset", ".github"]
 	},
 	"linter": {
 		"enabled": true,
