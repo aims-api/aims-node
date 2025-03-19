@@ -4,12 +4,7 @@
 	"license": "UNLICENSED",
 	"homepage": "https://github.com/aims-api/aims-node",
 	"author": "AIMS API <support@aimsapi.com> (https://aimsapi.com/)",
-	"keywords": [
-		"music search",
-		"similarity search",
-		"lyrics search",
-		"api"
-	],
+	"keywords": ["music search", "similarity search", "lyrics search", "api"],
 	"repository": {
 		"type": "git",
 		"url": "git://github.com/aims-api/aims-node.git"
@@ -25,8 +20,9 @@
 		"dev": "ts-node ./src/index.ts",
 		"prebuild": "yarn run clean",
 		"build": "tsup src --out-dir dist --format esm --dts",
-		"ci-lint": "biome check . --diagnostic-level=error && tsc --noEmit",
-		"lint-fix": "biome check . --diagnostic-level=error --write",
+		"ts:check": "tsc --noEmit",
+		"lint": "biome check --diagnostic-level=error . && yarn run ts:check",
+		"lint:fix": "biome check --diagnostic-level=error --write .",
 		"test": "echo 'RUNNING UNIT TESTS' && node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand",
 		"test-integration": "node --experimental-vm-modules node_modules/jest/bin/jest.js -c jest.config.integration.js --runInBand",
 		"publish-npm": "yarn build && changeset publish",
