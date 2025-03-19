@@ -41,6 +41,7 @@ export const detailedCollectionSchema = z
     listener_territories: z.nullable(z.any()),
     socials: z.nullable(z.any()),
     on_tour: z.nullable(z.boolean()),
+    is_exported: z.boolean(),
   })
   .merge(collectionSchema)
 
