@@ -7,12 +7,13 @@ export interface ById {
   track_id: string
   page?: number
   page_size?: number
+  detailed?: boolean
 }
 
 const plugById =
   (client: () => AxiosInstance, path: 'playlist') =>
-  async (request: ById): Promise<Response<SimilarCollectionsResponse>> => {
-    return await plug(client, path, 'by-id', request)
-  }
+    async (request: ById): Promise<Response<SimilarCollectionsResponse>> => {
+      return await plug(client, path, 'by-id', request)
+    }
 
 export { plugById }

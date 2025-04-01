@@ -7,10 +7,11 @@ export interface ByUrl {
   link: string
   page?: number
   page_size?: number
+  detailed?: boolean
 }
 
 export const plugByUrl =
   (client: () => AxiosInstance, path: 'playlist') =>
-  async (request: ByUrl): Promise<Response<SimilarCollectionsResponse>> => {
-    return await plug(client, path, 'by-url', request)
-  }
+    async (request: ByUrl): Promise<Response<SimilarCollectionsResponse>> => {
+      return await plug(client, path, 'by-url', request)
+    }

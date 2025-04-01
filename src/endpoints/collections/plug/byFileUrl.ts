@@ -7,10 +7,11 @@ export interface ByFileUrl {
   track: string
   page?: number
   page_size?: number
+  detailed?: boolean
 }
 
 export const plugByFileUrl =
   (client: () => AxiosInstance, path: 'playlist') =>
-  async (request: ByFileUrl): Promise<Response<SimilarCollectionsResponse>> => {
-    return await plug(client, path, 'by-file-url', request)
-  }
+    async (request: ByFileUrl): Promise<Response<SimilarCollectionsResponse>> => {
+      return await plug(client, path, 'by-file-url', request)
+    }
