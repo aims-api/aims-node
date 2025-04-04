@@ -2,11 +2,11 @@ import { ReadStream } from 'node:fs'
 import { AxiosInstance } from 'axios'
 import FormData from 'form-data'
 import { Response } from '../../../helpers/apiResponse'
+import { Filtering } from '../../../helpers/filtering'
+import { QueryParams } from '../../../helpers/types'
 import { SimilarCollectionsResponse } from '../../../helpers/types/collection'
 import { transformObjToFormData } from '../../../helpers/utils'
 import { plug } from './index'
-import { Filtering } from '../../../helpers/filtering'
-import { QueryParams } from '../../../helpers/types'
 
 export interface ByFile {
   track: ReadStream

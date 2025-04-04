@@ -1,9 +1,9 @@
 import { AxiosInstance } from 'axios'
 import { Response } from '../../../helpers/apiResponse'
-import { SimilarCollectionsResponse } from '../../../helpers/types/collection'
-import { plug } from './index'
 import { Filtering } from '../../../helpers/filtering'
 import { QueryParams } from '../../../helpers/types'
+import { SimilarCollectionsResponse } from '../../../helpers/types/collection'
+import { plug } from './index'
 
 export interface ByFileUrl {
   track: string
