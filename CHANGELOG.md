@@ -1,5 +1,11 @@
 # @aims-api/aims-node
 
+## 0.0.34
+
+### Patch Changes
+
+- b8d9445: playlist plugging: request params added
+
 ## 0.0.33
 
 ### Patch Changes
