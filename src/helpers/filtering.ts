@@ -4,7 +4,7 @@ interface FieldValueInteger {
 }
 
 interface FieldValueBoolean {
-  field: 'version' | 'active' | 'licensable' | 'restricted' | 'explicit' | 'profane' | 'commercial'
+  field: 'version' | 'active' | 'licensable' | 'restricted' | 'explicit' | 'profane' | 'commercial' | 'is_hidden'
   value: boolean
 }
 
