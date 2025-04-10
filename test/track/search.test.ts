@@ -49,10 +49,10 @@ const trackListResponse: TrackListResponse = {
 }
 const querySearchTracksPath = `${API_HOST}/${API_VERSION}/tracks/search`
 
-const server = setupServer(rest.get(querySearchTracksPath, (req, res, ctx) => res(ctx.json({}))))
+const server = setupServer(rest.post(querySearchTracksPath, (req, res, ctx) => res(ctx.json({}))))
 
 const mockServerBodyData = (status: number) => {
-  server.use(rest.get(querySearchTracksPath, (req, res, ctx) => res(ctx.status(status), ctx.json(trackListResponse))))
+  server.use(rest.post(querySearchTracksPath, (req, res, ctx) => res(ctx.status(status), ctx.json(trackListResponse))))
 }
 
 describe('SearchTracks - byName', () => {
