@@ -1,5 +1,11 @@
 # @aims-api/aims-node
 
+## 0.0.36
+
+### Patch Changes
+
+- f635dd6: update collection to support playlist search
+
 ## 0.0.35
 
 ### Patch Changes
