@@ -20,10 +20,11 @@ export const collectionSchema = z.object({
   id: z.string(),
   key: z.string(),
   processed_at: z.nullable(z.string()),
-  updated_at: z.string(),
+  updated_at: z.optional(z.string()),
   title: z.string(),
   description: z.optional(z.nullable(z.string())),
   grouping_data: z.optional(z.nullable(groupingDataSchema)),
+  auto_tagging_output: z.optional(z.nullable(z.record(z.any()))),
   thumbnails: z.nullable(z.any()),
 })
 
@@ -41,7 +42,10 @@ export const detailedCollectionSchema = z
     listener_territories: z.nullable(z.any()),
     socials: z.nullable(z.any()),
     on_tour: z.nullable(z.boolean()),
-    is_exported: z.boolean(),
+    is_exported: z.nullable(z.boolean()),
+    featuring: z.optional(z.nullable(z.any())),
+    label_id: z.optional(z.nullable(z.any())),
+    popularity: z.optional(z.nullable(z.number())),
   })
   .merge(collectionSchema)
 

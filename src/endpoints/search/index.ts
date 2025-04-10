@@ -4,6 +4,7 @@ import { API_VERSION } from '../../consts'
 import { Response, parseError, successResponse } from '../../helpers/apiResponse'
 import { Filtering } from '../../helpers/filtering'
 import { QueryParams } from '../../helpers/types'
+import { detailedCollectionSchema } from '../../helpers/types/collection'
 import { totalsSchema } from '../../helpers/types/search'
 import { lyricsSearchSchema, trackDetailedSchema, trackSchema } from '../../helpers/types/track'
 
@@ -107,6 +108,7 @@ const albumSchema = z.object({
 const collectionsSchema = z.object({
   artists: z.array(artistSchema).optional(),
   albums: z.array(albumSchema).optional(),
+  playlists: z.array(detailedCollectionSchema).optional(),
 })
 
 export const searchResponseSchema = z.object({
@@ -131,6 +133,7 @@ export interface SearchRequest {
   seeds?: Array<{ type: string; value: string }>
   include_collection_result_types?: {
     artists?: boolean
+    playlists?: boolean
   }
 }
 
