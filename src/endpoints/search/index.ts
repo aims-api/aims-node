@@ -133,7 +133,7 @@ export interface SearchRequest {
   seeds?: Array<{ type: string; value: string }>
   include_collection_result_types?: {
     artists?: boolean
-    playlists?: boolean;
+    playlists?: boolean
   }
 }
 
