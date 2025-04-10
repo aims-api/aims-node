@@ -1,5 +1,11 @@
 # @aims-api/aims-node
 
+## 0.0.35
+
+### Patch Changes
+
+- df4bd4c: searchTracks method calls post
+
 ## 0.0.34
 
 ### Patch Changes
