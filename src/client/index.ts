@@ -29,6 +29,7 @@ import { getSnapshot } from '../endpoints/collections/snapshot/get'
 import { suggestTracks } from '../endpoints/collections/suggest'
 import { updateCollection } from '../endpoints/collections/update'
 import { download } from '../endpoints/download'
+import { conversion } from '../endpoints/feedback/conversion'
 import { get } from '../endpoints/link-info/get'
 import { multipleSeeds } from '../endpoints/playlist/create/multipleSeeds'
 import { singleSeed } from '../endpoints/playlist/create/singleSeed'
@@ -54,7 +55,6 @@ import { searchTracks } from '../endpoints/track/search'
 import { updateTrack } from '../endpoints/track/update'
 import { getValues } from '../endpoints/track/values'
 import { getWaveform } from '../endpoints/track/waveform'
-import { conversion } from '../endpoints/feedback/conversion'
 
 interface CredentialsOptions {
   authorization: string | null
