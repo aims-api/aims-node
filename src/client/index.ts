@@ -29,6 +29,7 @@ import { getSnapshot } from '../endpoints/collections/snapshot/get'
 import { suggestTracks } from '../endpoints/collections/suggest'
 import { updateCollection } from '../endpoints/collections/update'
 import { download } from '../endpoints/download'
+import { createConversion } from '../endpoints/feedback/createConversion'
 import { get } from '../endpoints/link-info/get'
 import { multipleSeeds } from '../endpoints/playlist/create/multipleSeeds'
 import { singleSeed } from '../endpoints/playlist/create/singleSeed'
@@ -286,6 +287,7 @@ class Client {
     promptSuggestions: promptSuggestions(this.getClient),
     search: search(this.getClient),
     linkInfo: get,
+    feedback: createConversion(this.getClient),
   }
 
   constructor(options?: CredentialsOptions) {
