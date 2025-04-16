@@ -30,7 +30,7 @@ interface RequestData {
   query_id: string // uuid
 }
 
-const conversion =
+const createConversion =
   (client: () => AxiosInstance) =>
   async (data: RequestData): Promise<Response<ConversionResponse>> => {
     try {
@@ -42,4 +42,4 @@ const conversion =
     }
   }
 
-export { conversion, type Conversion, type RequestData }
+export { createConversion, type Conversion, type RequestData }
