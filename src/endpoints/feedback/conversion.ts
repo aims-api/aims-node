@@ -1,6 +1,6 @@
 import { AxiosInstance } from 'axios'
-import { API_VERSION } from '../../consts'
 import { z } from 'zod'
+import { API_VERSION } from '../../consts'
 import { Response, parseError, successResponse } from '../../helpers/apiResponse'
 
 const conversionSchema = z.enum([
