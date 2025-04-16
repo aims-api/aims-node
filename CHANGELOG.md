@@ -1,5 +1,11 @@
 # @aims-api/aims-node
 
+## 0.0.37
+
+### Patch Changes
+
+- 3d157ce: feedback endpoint added
+
 ## 0.0.36
 
 ### Patch Changes
