@@ -54,6 +54,7 @@ import { searchTracks } from '../endpoints/track/search'
 import { updateTrack } from '../endpoints/track/update'
 import { getValues } from '../endpoints/track/values'
 import { getWaveform } from '../endpoints/track/waveform'
+import { conversion } from '../endpoints/feedback/conversion'
 
 interface CredentialsOptions {
   authorization: string | null
@@ -286,6 +287,7 @@ class Client {
     promptSuggestions: promptSuggestions(this.getClient),
     search: search(this.getClient),
     linkInfo: get,
+    feedback: conversion(this.getClient),
   }
 
   constructor(options?: CredentialsOptions) {
