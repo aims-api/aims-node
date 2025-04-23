@@ -21,7 +21,15 @@ const searchTracks =
   (client: () => AxiosInstance) =>
   async (request: Request): Promise<Response<TrackListResponse | TrackListDetailedResponse>> => {
     try {
-      const response = await client().post(`/${API_VERSION}/tracks/search`, request)
+      // ANNOUNC: GET params are not supported when in body
+      const { filter, ...restParams } = request
+      const response = await client().post(
+        `/${API_VERSION}/tracks/search`,
+        { filter },
+        {
+          params: restParams,
+        },
+      )
       if (response.status === 204) {
         return successResponse(emptyResultsResponse)
       }
