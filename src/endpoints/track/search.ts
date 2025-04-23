@@ -21,7 +21,8 @@ const searchTracks =
   (client: () => AxiosInstance) =>
   async (request: Request): Promise<Response<TrackListResponse | TrackListDetailedResponse>> => {
     try {
-      const response = await client().post(`/${API_VERSION}/tracks/search`, request)
+      const { name, ...restParams } = request
+      const response = await client().post(`/${API_VERSION}/tracks/search?name=${name}`, restParams)
       if (response.status === 204) {
         return successResponse(emptyResultsResponse)
       }

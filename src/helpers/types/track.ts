@@ -65,7 +65,7 @@ const trackOnlyDetailedSchema = z.object({
       .or(z.string()),
   ),
   custom_data: z.nullable(z.any()),
-  auto_tagging_output: z.optional(z.nullable(z.record(z.any()))),
+  auto_tagging_output: z.any(), // z.optional(z.nullable(z.record(z.any()))),
   net_duration: z.optional(z.nullable(z.record(z.any()))),
   filepath: z.nullable(z.string()),
   external_id: z.nullable(z.string()),
