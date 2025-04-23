@@ -1,5 +1,11 @@
 # @aims-api/aims-node
 
+## 0.0.39
+
+### Patch Changes
+
+- 603046a: auto_tagging_output loosen, searchTrack endpoint with GET param
+
 ## 0.0.38
 
 ### Patch Changes
