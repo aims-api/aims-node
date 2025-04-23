@@ -1,5 +1,11 @@
 # @aims-api/aims-node
 
+## 0.0.38
+
+### Patch Changes
+
+- 1193358: add support for filtering based on user_id
+
 ## 0.0.37
 
 ### Patch Changes
