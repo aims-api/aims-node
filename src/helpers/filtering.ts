@@ -47,6 +47,7 @@ interface FieldValueString {
     | 'album_keywords'
     | 'cuesheet_info'
     | 'territories'
+    | 'user_id'
   value: string
 }
 
