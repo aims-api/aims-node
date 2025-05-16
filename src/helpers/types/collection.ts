@@ -56,11 +56,15 @@ export const collectionResponseSchema = z.object({
 export const similarCollectionsResponseSchema = z.object({
   query_id: z.string(),
   collections: z.array(collectionSchema),
+  // Result of byFile search
+  hash: z.optional(z.string()),
 })
 
 export const similarCollectionsResponseSchemaDetailed = z.object({
   query_id: z.string(),
   collections: z.array(detailedCollectionSchema),
+  // Result of byFile search
+  hash: z.optional(z.string()),
 })
 
 export type Collection = z.infer<typeof collectionSchema>
