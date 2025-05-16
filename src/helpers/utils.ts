@@ -3,6 +3,11 @@ import FormData from 'form-data'
 
 export const transformObjToFormData = (formdata: FormData, data: object, message = '') => {
   Object.entries(data).forEach(([key, value]) => {
+    if (typeof value === 'undefined' || value === null) {
+      // FormData does not support undefined or null
+      formdata.append(message === '' ? key : `${message}[${key}]`, '')
+      return
+    }
     if (typeof value === 'boolean') {
       formdata.append(message === '' ? key : `${message}[${key}]`, `${value}`)
       return

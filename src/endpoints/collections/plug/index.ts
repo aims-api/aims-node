@@ -7,6 +7,7 @@ import {
   similarCollectionsResponseSchema,
   similarCollectionsResponseSchemaDetailed,
 } from '../../../helpers/types/collection'
+import { ByFile } from './byFile'
 import { ByFileUrl } from './byFileUrl'
 import { ById } from './byId'
 import { ByUrl } from './byUrl'
@@ -15,7 +16,7 @@ export const plug = async (
   client: () => AxiosInstance,
   path: string,
   by: string,
-  request: ById | ByUrl | ByFileUrl | FormData,
+  request: ById | ByUrl | ByFileUrl | ByFile | FormData,
 ): Promise<Response<SimilarCollectionsResponse>> => {
   try {
     const response = await client().post(`/${API_VERSION}/${path}/plug/${by}`, request)
