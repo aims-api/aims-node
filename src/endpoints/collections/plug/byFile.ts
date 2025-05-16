@@ -18,8 +18,8 @@ type Request = ByFile & Filtering & QueryParams
 
 export const plugByFile =
   (client: () => AxiosInstance, path: 'playlist') =>
-  async (request: Request): Promise<Response<SimilarCollectionsResponse>> => {
+  async ({ detailed, ...request }: Request): Promise<Response<SimilarCollectionsResponse>> => {
     const data = new FormData()
     transformObjToFormData(data, request)
-    return await plug(client, path, 'by-file', data)
+    return await plug(client, path, 'by-file', data, { detailed })
   }
