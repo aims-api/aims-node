@@ -8,12 +8,16 @@ import {
   similarCollectionsResponseSchemaDetailed,
 } from '../../../helpers/types/collection'
 import { ByFile } from './byFile'
+import { ByFileHash } from './byFileHash'
 import { ByFileUrl } from './byFileUrl'
 import { ById } from './byId'
 import { ByUrl } from './byUrl'
 
 // FormData is a stream, so its data cannot be read, but the detailed prop needs to be passed as a param - so we use `options` as a workaround
-const getDetailedProp = (request: ById | ByUrl | ByFileUrl | ByFile | FormData, options?: { detailed?: boolean }) => {
+const getDetailedProp = (
+  request: ById | ByUrl | ByFileUrl | ByFile | ByFileHash | FormData,
+  options?: { detailed?: boolean },
+) => {
   if (options?.detailed) {
     return options.detailed
   }
@@ -29,7 +33,7 @@ export const plug = async (
   client: () => AxiosInstance,
   path: string,
   by: string,
-  request: ById | ByUrl | ByFileUrl | ByFile | FormData,
+  request: ById | ByUrl | ByFile | ByFileUrl | ByFileHash | FormData,
   options?: { detailed?: boolean },
 ): Promise<Response<SimilarCollectionsResponse>> => {
   try {
@@ -39,6 +43,10 @@ export const plug = async (
       detailed ? similarCollectionsResponseSchemaDetailed : similarCollectionsResponseSchema
     ).parse(response.data)
     const hash = response.headers['x-hash']
+
+
+    console.log("hash format", { ...parserResponse, ...(hash && { hash }) })
+
     return successResponse({ ...parserResponse, ...(hash && { hash }) })
   } catch (error) {
     return parseError(error)
