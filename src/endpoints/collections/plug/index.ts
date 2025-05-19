@@ -43,10 +43,6 @@ export const plug = async (
       detailed ? similarCollectionsResponseSchemaDetailed : similarCollectionsResponseSchema
     ).parse(response.data)
     const hash = response.headers['x-hash']
-
-
-    console.log("hash format", { ...parserResponse, ...(hash && { hash }) })
-
     return successResponse({ ...parserResponse, ...(hash && { hash }) })
   } catch (error) {
     return parseError(error)
