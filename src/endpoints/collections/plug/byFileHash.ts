@@ -5,16 +5,16 @@ import { QueryParams } from '../../../helpers/types'
 import { SimilarCollectionsResponse } from '../../../helpers/types/collection'
 import { plug } from './index'
 
-export interface ById {
-  track_id: string
+export interface ByFileHash {
+  hash: string
   page?: number
   page_size?: number
 }
 
-type Request = ById & Filtering & QueryParams
+type Request = ByFileHash & Filtering & QueryParams
 
-export const plugById =
+export const plugByFileHash =
   (client: () => AxiosInstance, path: 'playlist') =>
   (request: Request): Promise<Response<SimilarCollectionsResponse>> => {
-    return plug(client, path, 'by-id', request)
+    return plug(client, path, 'by-file-hash', request)
   }

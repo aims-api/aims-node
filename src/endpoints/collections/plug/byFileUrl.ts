@@ -15,6 +15,6 @@ type Request = ByFileUrl & Filtering & QueryParams
 
 export const plugByFileUrl =
   (client: () => AxiosInstance, path: 'playlist') =>
-  async (request: Request): Promise<Response<SimilarCollectionsResponse>> => {
-    return await plug(client, path, 'by-file-url', request)
+  (request: Request): Promise<Response<SimilarCollectionsResponse>> => {
+    return plug(client, path, 'by-file-url', request)
   }

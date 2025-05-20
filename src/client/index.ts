@@ -18,6 +18,7 @@ import { getTracks } from '../endpoints/collections/getTracks'
 import { listCollection } from '../endpoints/collections/list'
 import { createPlaylistFromProject } from '../endpoints/collections/playlist/create'
 import { plugByFile } from '../endpoints/collections/plug/byFile'
+import { plugByFileHash } from '../endpoints/collections/plug/byFileHash'
 import { plugByFileUrl } from '../endpoints/collections/plug/byFileUrl'
 import { plugById } from '../endpoints/collections/plug/byId'
 import { plugByUrl } from '../endpoints/collections/plug/byUrl'
@@ -252,8 +253,9 @@ class Client {
       plug: {
         byId: plugById(this.getClient, 'playlist'),
         byUrl: plugByUrl(this.getClient, 'playlist'),
-        byFileUrl: plugByFileUrl(this.getClient, 'playlist'),
         byFile: plugByFile(this.getClient, 'playlist'),
+        byFileUrl: plugByFileUrl(this.getClient, 'playlist'),
+        byFileHash: plugByFileHash(this.getClient, 'playlist'),
       },
     },
     query: {
