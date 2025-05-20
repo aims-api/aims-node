@@ -22,11 +22,7 @@ const getDetailedProp = (
     return options.detailed
   }
 
-  if ('detailed' in request && request.detailed) {
-    return true
-  }
-
-  return false
+  return 'detailed' in request && request.detailed
 }
 
 export const plug = async (

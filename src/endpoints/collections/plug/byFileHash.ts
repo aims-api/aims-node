@@ -15,6 +15,6 @@ type Request = ByFileHash & Filtering & QueryParams
 
 export const plugByFileHash =
   (client: () => AxiosInstance, path: 'playlist') =>
-  async (request: Request): Promise<Response<SimilarCollectionsResponse>> => {
-    return await plug(client, path, 'by-file-hash', request)
+  (request: Request): Promise<Response<SimilarCollectionsResponse>> => {
+    return plug(client, path, 'by-file-hash', request)
   }

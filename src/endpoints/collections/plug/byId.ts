@@ -13,10 +13,8 @@ export interface ById {
 
 type Request = ById & Filtering & QueryParams
 
-const plugById =
+export const plugById =
   (client: () => AxiosInstance, path: 'playlist') =>
-  async (request: Request): Promise<Response<SimilarCollectionsResponse>> => {
-    return await plug(client, path, 'by-id', request)
+  (request: Request): Promise<Response<SimilarCollectionsResponse>> => {
+    return plug(client, path, 'by-id', request)
   }
-
-export { plugById }
