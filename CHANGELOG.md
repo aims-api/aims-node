@@ -1,5 +1,11 @@
 # @aims-api/aims-node
 
+## 0.0.40
+
+### Patch Changes
+
+- 945738a: add support for playlist plugging by file and file hash
+
 ## 0.0.39
 
 ### Patch Changes
