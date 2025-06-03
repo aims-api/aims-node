@@ -1,5 +1,11 @@
 # @aims-api/aims-node
 
+## 0.0.41
+
+### Patch Changes
+
+- f409e1a: make description in linkInfoSchema nullable
+
 ## 0.0.40
 
 ### Patch Changes
