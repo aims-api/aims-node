@@ -19,7 +19,7 @@ export type LinkSource = (typeof LinkSources)[keyof typeof LinkSources]
 
 export const linkInfoSchema = z.object({
   audioUrl: z.optional(z.nullable(z.string())),
-  description: z.optional(z.string()),
+  description: z.optional(z.nullable(z.string())),
   duration: z.number(),
   embed: z.optional(z.string()),
   id: z.string(), // Announcement: link id
