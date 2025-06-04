@@ -1,5 +1,3 @@
-import { Response, parseError, successResponse } from '../apiResponse'
-
 const baseUrl = 'https://music.apple.com/'
 
 const parseAppleMusicAmpApiBearerToken = async () => {
@@ -7,7 +5,7 @@ const parseAppleMusicAmpApiBearerToken = async () => {
   const response = await fetch(baseUrl + scriptPath)
 
   if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`)
+    throw new Error(`Apple Music token: Could not fetch script with token with status ${response.status}`)
   }
 
   const src = await response.text()
@@ -16,7 +14,7 @@ const parseAppleMusicAmpApiBearerToken = async () => {
   const match = src.match(variableNameRegexp)
 
   if (!match || !match[1]) {
-    throw new Error('Variable name not found in script')
+    throw new Error('Apple Music token: Token variable name not found in script')
   }
   const [, variableName] = match
 
@@ -25,7 +23,7 @@ const parseAppleMusicAmpApiBearerToken = async () => {
   const tokenMatch = src.match(tokenRegexp)
 
   if (!tokenMatch || !tokenMatch[1]) {
-    throw new Error('Token not found in script')
+    throw new Error('Apple Music token: Token not found in script')
   }
 
   const [, token] = tokenMatch
@@ -36,7 +34,7 @@ const parseAppleMusicScriptPath = async () => {
   const response = await fetch(baseUrl)
 
   if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`)
+    throw new Error(`Apple Music token: Could not fetch ${baseUrl} with status ${response.status}`)
   }
 
   const html = await response.text()
@@ -44,17 +42,10 @@ const parseAppleMusicScriptPath = async () => {
   const match = html.match(regex)
 
   if (!match) {
-    throw new Error('Apple Music script path not found')
+    throw new Error('Apple Music token: Apple Music script path not found')
   }
 
   return match[0]
 }
 
-export const getAppleMusicToken = async (): Promise<Response<unknown>> => {
-  try {
-    const response = await parseAppleMusicAmpApiBearerToken()
-    return successResponse(response)
-  } catch (error) {
-    return parseError(error)
-  }
-}
+export { parseAppleMusicAmpApiBearerToken as fetchToken }
