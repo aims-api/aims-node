@@ -1,4 +1,4 @@
-import { fetchSong, fetchToken } from 'node-apple-music'
+import { fetchSong, setToken } from 'node-apple-music'
 import SpotifyWebApi from 'spotify-web-api-node'
 import TikAPI from 'tikapi'
 // TODO: vimeo deprecated, upgrade to https://www.npmjs.com/package/@vimeo/vimeo
@@ -7,6 +7,7 @@ import { z } from 'zod'
 import { Request as Payload } from '../../endpoints/link-info/get'
 import { type LinkInfo, type LinkSource, LinkSources } from '../types/linkInfo'
 import { YouTubeDataAPI } from './YouTubeDataAPI'
+import { fetchToken } from './appleMusic'
 import { iso8601ToSeconds } from './utils'
 
 const youTubeIdResolver = (link: URL): string => {
@@ -361,8 +362,9 @@ const appleMusicProcessor = async (link: URL, _credentials: AuthPayload): Promis
   const countryCode = link.pathname.substring(1, 3)
 
   try {
-    await fetchToken()
-  } catch {
+    const token = await fetchToken()
+    setToken(token)
+  } catch (error) {
     throw Error('Apple Music API token is invalid')
   }
 
