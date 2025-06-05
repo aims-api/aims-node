@@ -48,4 +48,12 @@ const parseAppleMusicScriptPath = async () => {
   return match[0]
 }
 
-export { parseAppleMusicAmpApiBearerToken as fetchToken }
+let appleMusicToken: string
+
+export const fetchToken = async () => {
+  if (appleMusicToken) {
+    return appleMusicToken
+  }
+  appleMusicToken = await parseAppleMusicAmpApiBearerToken()
+  return appleMusicToken
+}
