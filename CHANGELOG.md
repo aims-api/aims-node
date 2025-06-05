@@ -1,5 +1,11 @@
 # @aims-api/aims-node
 
+## 0.0.42
+
+### Patch Changes
+
+- 8489b23: add support for dynamic fetch of anonymous apple music token
+
 ## 0.0.41
 
 ### Patch Changes
