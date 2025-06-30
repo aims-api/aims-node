@@ -1,5 +1,14 @@
+
 <h1 align="center">
- AIMS Node
+🗃️ [Repository archived] 🗃️
+</h1>
+
+This repository is archived and no longer maintained. Its content was moved into the internal AIMS API monorepo. The code is still available for reference, but no further updates will be provided. This change does not affect the package's availability on npm or its functionality.
+
+<hr />
+
+<h1 align="center">
+ @aims-api/aims-node
 </h1>
 
 <div align="center">
@@ -26,10 +35,13 @@
 <details open="open">
 <summary><h2>Table of Contents</h2></summary>
 
+- [Report a Bug](#report-a-bug)
+- [Request a Feature](#request-a-feature)
 - [Getting Started](#getting-started)
   - [Authentication](#authentication)
-  - [Next.js example](#example-with-nextjs)
+  - [Example with Next.js](#example-with-nextjs)
 - [Usage](#usage)
+  - [TypeScript](#typescript)
   - [Routes](#routes)
   - [Response Structure](#response-structure)
 - [License](#license)
